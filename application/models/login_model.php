@@ -46,7 +46,7 @@ class LoginModel
                                           user_failed_logins,
                                           user_last_failed_login
                                    FROM   users
-                                   WHERE  (user_name = :user_name OR user_email = :user_name)
+                                   WHERE  user_email = :user_name
                                           AND user_provider_type = :provider_type");
         // DEFAULT is the marker for "normal" accounts (that have a password etc.)
         // There are other types of accounts that don't have passwords etc. (FACEBOOK)
@@ -133,7 +133,7 @@ class LoginModel
             // increment the failed login counter for that user
             $sql = "UPDATE users
                     SET user_failed_logins = user_failed_logins+1, user_last_failed_login = :user_last_failed_login
-                    WHERE user_name = :user_name OR user_email = :user_name";
+                    WHERE user_email = :user_name";
             $sth = $this->db->prepare($sql);
             $sth->execute(array(':user_name' => $_POST['user_name'], ':user_last_failed_login' => time() ));
             // feedback message
@@ -424,29 +424,29 @@ class LoginModel
         /*
         if (!$this->checkCaptcha()) {
             $_SESSION["feedback_negative"][] = FEEDBACK_CAPTCHA_WRONG;
-        } else*/if (empty($_POST['user_name'])) {
+        } elseif (empty($_POST['user_name'])) {
             $_SESSION["feedback_negative"][] = FEEDBACK_USERNAME_FIELD_EMPTY;
-        } elseif (empty($_POST['user_password_new']) OR empty($_POST['user_password_repeat'])) {
+        } else*/if (empty($_POST['user_password_new']) OR empty($_POST['user_password_repeat'])) {
             $_SESSION["feedback_negative"][] = FEEDBACK_PASSWORD_FIELD_EMPTY;
         } elseif ($_POST['user_password_new'] !== $_POST['user_password_repeat']) {
             $_SESSION["feedback_negative"][] = FEEDBACK_PASSWORD_REPEAT_WRONG;
         } elseif (strlen($_POST['user_password_new']) < 6) {
             $_SESSION["feedback_negative"][] = FEEDBACK_PASSWORD_TOO_SHORT;
-        } elseif (strlen($_POST['user_name']) > 64 OR strlen($_POST['user_name']) < 2) {
+        } else/*if (strlen($_POST['user_name']) > 64 OR strlen($_POST['user_name']) < 2) {
             $_SESSION["feedback_negative"][] = FEEDBACK_USERNAME_TOO_SHORT_OR_TOO_LONG;
         } elseif (!preg_match('/^[a-z\d]{2,64}$/i', $_POST['user_name'])) {
             $_SESSION["feedback_negative"][] = FEEDBACK_USERNAME_DOES_NOT_FIT_PATTERN;
-        } elseif (empty($_POST['user_email'])) {
+        } else*/if (empty($_POST['user_email'])) {
             $_SESSION["feedback_negative"][] = FEEDBACK_EMAIL_FIELD_EMPTY;
         } elseif (strlen($_POST['user_email']) > 64) {
             $_SESSION["feedback_negative"][] = FEEDBACK_EMAIL_TOO_LONG;
         } elseif (!filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)) {
             $_SESSION["feedback_negative"][] = FEEDBACK_EMAIL_DOES_NOT_FIT_PATTERN;
-        } elseif (!empty($_POST['user_name'])
+        } elseif /*(!empty($_POST['user_name'])
             AND strlen($_POST['user_name']) <= 64
             AND strlen($_POST['user_name']) >= 2
             AND preg_match('/^[a-z\d]{2,64}$/i', $_POST['user_name'])
-            AND !empty($_POST['user_email'])
+            AND */(!empty($_POST['user_email'])
             AND strlen($_POST['user_email']) <= 64
             AND filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)
             AND !empty($_POST['user_password_new'])
@@ -454,7 +454,7 @@ class LoginModel
             AND ($_POST['user_password_new'] === $_POST['user_password_repeat'])) {
 
             // clean the input
-            $user_name = strip_tags($_POST['user_name']);
+           // $user_name = strip_tags($_POST['user_name']);
             $user_email = strip_tags($_POST['user_email']);
 
             // crypt the user's password with the PHP 5.5's password_hash() function, results in a 60 character
@@ -463,7 +463,7 @@ class LoginModel
             // how those PHP 5.5 functions want the parameter: as an array with, currently only used with 'cost' => XX
             $hash_cost_factor = (defined('HASH_COST_FACTOR') ? HASH_COST_FACTOR : null);
             $user_password_hash = password_hash($_POST['user_password_new'], PASSWORD_DEFAULT, array('cost' => $hash_cost_factor));
-
+            /*
             // check if username already exists
             $query = $this->db->prepare("SELECT * FROM users WHERE user_name = :user_name");
             $query->execute(array(':user_name' => $user_name));
@@ -472,7 +472,7 @@ class LoginModel
                 $_SESSION["feedback_negative"][] = FEEDBACK_USERNAME_ALREADY_TAKEN;
                 return false;
             }
-
+    */
             // check if email already exists
             $query = $this->db->prepare("SELECT user_id FROM users WHERE user_email = :user_email");
             $query->execute(array(':user_email' => $user_email));
@@ -488,11 +488,10 @@ class LoginModel
             $user_creation_timestamp = time();
 
             // write new users data into database
-            $sql = "INSERT INTO users (user_name, user_password_hash, user_email, user_creation_timestamp, user_activation_hash, user_provider_type)
-                    VALUES (:user_name, :user_password_hash, :user_email, :user_creation_timestamp, :user_activation_hash, :user_provider_type)";
+            $sql = "INSERT INTO users (user_password_hash, user_email, user_creation_timestamp, user_activation_hash, user_provider_type)
+                    VALUES (:user_password_hash, :user_email, :user_creation_timestamp, :user_activation_hash, :user_provider_type)";
             $query = $this->db->prepare($sql);
-            $query->execute(array(':user_name' => $user_name,
-                                  ':user_password_hash' => $user_password_hash,
+            $query->execute(array(':user_password_hash' => $user_password_hash,
                                   ':user_email' => $user_email,
                                   ':user_creation_timestamp' => $user_creation_timestamp,
                                   ':user_activation_hash' => $user_activation_hash,
@@ -504,8 +503,8 @@ class LoginModel
             }
 
             // get user_id of the user that has been created, to keep things clean we DON'T use lastInsertId() here
-            $query = $this->db->prepare("SELECT user_id FROM users WHERE user_name = :user_name");
-            $query->execute(array(':user_name' => $user_name));
+            $query = $this->db->prepare("SELECT user_id FROM users WHERE user_email = :user_email");
+            $query->execute(array(':user_email' => $user_email));
             if ($query->rowCount() != 1) {
                 $_SESSION["feedback_negative"][] = FEEDBACK_UNKNOWN_ERROR;
                 return false;
