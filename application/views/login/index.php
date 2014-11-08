@@ -6,7 +6,7 @@
     <div class="login-default-box">
         <h1>Login</h1>
         <form action="<?php echo URL; ?>login/login" method="post">
-                <label>Username (or email)</label>
+                <label>E-mail</label>
                 <input type="text" name="user_name" required />
                 <label>Password</label>
                 <input type="password" name="user_password" required />

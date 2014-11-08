@@ -1,3 +1,4 @@
+<?php Auth::handleLogin() ?>
 <div class="content">
     <h1>Projek - Test Info Below Please Ignore</h1>
 

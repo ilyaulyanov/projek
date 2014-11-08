@@ -45,7 +45,7 @@ class Login extends Controller
         // check login status
         if ($login_successful) {
             // if YES, then move user to dashboard/index (btw this is a browser-redirection, not a rendered view!)
-            header('location: ' . URL . 'dashboard/index');
+            header('location: ' . URL . 'index/index');
         } else {
             // if NO, then move user to login/index (login form) again
             header('location: ' . URL . 'login/index');
@@ -65,7 +65,7 @@ class Login extends Controller
         // check login status
         if ($login_successful) {
             // if YES, then move user to dashboard/index (this is a browser-redirection, not a rendered view)
-            header('location: ' . URL . 'dashboard/index');
+            header('location: ' . URL . 'index/index');
         } else {
             // if NO, then move user to login/index (login form) (this is a browser-redirection, not a rendered view)
             header('location: ' . URL . 'login/index');
@@ -93,7 +93,7 @@ class Login extends Controller
         $login_successful = $login_model->loginWithCookie();
 
         if ($login_successful) {
-            header('location: ' . URL . 'dashboard/index');
+            header('location: ' . URL . 'index/index');
         } else {
             // delete the invalid cookie to prevent infinite login loops
             $login_model->deleteCookie();
@@ -189,20 +189,19 @@ class Login extends Controller
         $this->view->render('login/uploadavatar');
     }
 
-    /**
-     *
-     */
+    /*
+     
     function changeAccountType()
     {
         // Auth::handleLogin() makes sure that only logged in users can use this action/method and see that page
         Auth::handleLogin();
         $this->view->render('login/changeaccounttype');
     }
-
+        */
     /**
      *
      */
-    function changeAccountType_action()
+    /*function changeAccountType_action()
     {
         // Auth::handleLogin() makes sure that only logged in users can use this action/method and see that page
         // Note: This line was missing in early version of the script, but it was never a real security issue as
@@ -212,7 +211,7 @@ class Login extends Controller
         $login_model = $this->loadModel('Login');
         $login_model->changeAccountType();
         $this->view->render('login/changeaccounttype');
-    }
+    }*/
 
     /**
      * Register page
@@ -339,9 +338,10 @@ class Login extends Controller
      * moment the end-user requests the <img .. >
      * If you don't know what this means: Don't worry, simply leave everything like it is ;)
      */
+    /*
     function showCaptcha()
     {
         $login_model = $this->loadModel('Login');
         $login_model->generateCaptcha();
-    }
+    }*/
 }

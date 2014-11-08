@@ -51,13 +51,10 @@
                     <a href="<?php echo URL; ?>login/showprofile">My Account</a>
                     <ul class="sub-menu">
                         <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
-                            <a href="<?php echo URL; ?>login/changeaccounttype">Change account type</a>
-                        </li>
-                        <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
                             <a href="<?php echo URL; ?>login/uploadavatar">Upload an avatar</a>
                         </li>
                         <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
-                            <a href="<?php echo URL; ?>login/editusername">Edit my username</a>
+                            <a href="<?php echo URL; ?>login/editusername">Edit my profile</a>
                         </li>
                         <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
                             <a href="<?php echo URL; ?>login/edituseremail">Edit my email</a>
