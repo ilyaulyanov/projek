@@ -45,7 +45,7 @@ class Login extends Controller
         // check login status
         if ($login_successful) {
             // if YES, then move user to dashboard/index (btw this is a browser-redirection, not a rendered view!)
-            header('location: ' . URL . 'index/index');
+            header('location: ' . URL . 'dashboard/index');
         } else {
             // if NO, then move user to login/index (login form) again
             header('location: ' . URL . 'login/index');
@@ -65,7 +65,7 @@ class Login extends Controller
         // check login status
         if ($login_successful) {
             // if YES, then move user to dashboard/index (this is a browser-redirection, not a rendered view)
-            header('location: ' . URL . 'index/index');
+            header('location: ' . URL . 'dashboard/index');
         } else {
             // if NO, then move user to login/index (login form) (this is a browser-redirection, not a rendered view)
             header('location: ' . URL . 'login/index');
@@ -93,7 +93,7 @@ class Login extends Controller
         $login_successful = $login_model->loginWithCookie();
 
         if ($login_successful) {
-            header('location: ' . URL . 'index/index');
+            header('location: ' . URL . 'dashboard/index');
         } else {
             // delete the invalid cookie to prevent infinite login loops
             $login_model->deleteCookie();
