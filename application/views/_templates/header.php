@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/reset.css" />
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/style.css" />
     <!-- in case you wonder: That's the cool-kids-protocol-free way to load jQuery -->
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+   <!-- <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>-->
+    <script type="text/javascript" src="<?php echo URL; ?>public/js/zepto.min.js"></script>
     <script type="text/javascript" src="<?php echo URL; ?>public/js/application.js"></script>
 </head>
 <body>

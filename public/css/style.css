@@ -1,6 +1,7 @@
 html, body {
     padding: 0;
     margin: 0;
+    text-align:center;
 }
 
 body {
@@ -46,11 +47,11 @@ p {
 }
 
 .header_left_box {
-    float: left;
+    float: center;
 }
 
 .header_right_box {
-    float: right;
+    float: center;
 }
 
 .header a {
@@ -106,7 +107,10 @@ h2 {
     font-size: 25px;
     margin-top: 0;
 }
-
+table{
+    margin-left:auto;
+    margin-right:auto;
+}
 table td {
     padding: 10px;
 }
@@ -276,10 +280,20 @@ input {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+textarea {
     border: 1px solid #ddd;
     color: #555;
     font-weight: bold;
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 20%;
+    margin-left:auto;
+    margin-right:auto;
     /*padding: 10px;    */
 
     /*
@@ -298,15 +312,20 @@ input[type="submit"] {
     font-weight: bold;
     /*padding: 10px;*/
     cursor: pointer;
+    float: none; clear: both;
+    width:20%;
+    margin-left:auto;
+    margin-right:auto;
 }
 .remember-me-checkbox {
-    float: left; min-width: 0; margin: 3px 10px 15px 0;
+    float: left; min-width: 0; margin: 3px 10px 15px 55px;
 }
 .remember-me-label {
     float:left; min-width: 0; font-size: 12px; color: #888;
 }
 .login-submit-button {
     float: none; clear: both;
+    width:100%;
 }
 
 .login-form-password-pattern-reminder {
@@ -323,7 +342,24 @@ input[type="submit"] {
     width: 300px;
     vertical-align: top;
 }
-
+.login-default-box input[type="text"]{
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 100%;
+}
+.login-default-box input[type="password"]{
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 100%;
+}
 a.facebook-login-button,
 a.facebook-register-button {
     background-color: #3b5998;
@@ -427,3 +463,6 @@ table.overview-table td.avatar {
     width: 44px;
     height: 44px;
 }
+
+.no-pointer{pointer-events:none}
+.project_task{width:10%!important;}
