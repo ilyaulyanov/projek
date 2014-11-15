@@ -7,19 +7,36 @@ Controller for projects page
 class Project extends Controller{
 
 	/* object constructor */
-	public function __construct(){
+	function __construct(){
 		parent::__construct();
 		//we don't want unauthorised users to access project page
 		Auth::handleLogin();
 	}
+	public function index(){
+		$project_model = $this->loadModel('Project');
+		$this->view->projects = $project_model->getAllProjects();
+		$this->view->render('project/index');
+	}
 
 	public function create(){
-		$project_model = $this->loadModel('Project');
-		$this->view->render('project/create');
+        $project_model = $this->loadModel('Project');
+        $this->view->render('project/create');
+        //$project_model->create($_POST['project_name'],$_POST['project_description']);
+        //header('location: ' . URL . 'project');
 	}
-	public function createReview(){
+
+	//a controller function for a page that will receive form data from /create and present it for a review before submitting it to a db
+	public function review(){
 		$project_model = $this->loadModel('Project');
-		$this->view->render('project/create/review');
+		$this->view->newproject = $project_model->getProjectReview();
+		$this->view->render('project/review');
+	}
+
+	public function createSave(){
+		$project_model = $this->loadModel('Project');
+		//print_r($_POST);
+		$project_model->create($_POST['project_name'],$_POST['project_description'], $_POST['projectStage'], $_POST['projectTask']);
+		//header('location: ' . URL . 'project/index');
 	}
 
 

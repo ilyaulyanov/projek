@@ -22,4 +22,8 @@ class Index extends Controller
     {
             $this->view->render('index/index');
     }
+
+    function create(){
+        //creating a new project interface
+    }
 }

@@ -23,7 +23,7 @@
                 echo '</tr>';
             }
         } else {
-            echo 'No notes yet. Create some !';
+            echo 'No notes yet. Create some!';
         }
     ?>
     </table>
