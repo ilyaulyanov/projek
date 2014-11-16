@@ -53,21 +53,25 @@ class ProjectModel
     * Gets data from a project form
     * @return boolean result(created or not)
     */
-    public function create($project_name, $project_description, $project_stage, $project_task){
+    public function create($project){
+
+        $project_array = json_encode($project);
+
+        $name = "actually";
 
 
-    	$project_name = strip_tags($project_name);
-    	$project_description = strip_tags($project_description);
-    	print_r($project_task);
+
+
     	//first: insert into projects
     	$sql = "INSERT INTO projects (project_name, project_description, user_id) VALUES (:project_name, :project_description, :user_id)";
         $query = $this->db->prepare($sql);
-        $query->execute(array(':project_name' => $project_name,':project_description' => $project_description, ':user_id' => $_SESSION['user_id']));
+        $query->execute(array(':project_name' => $name,':project_description' => $project_array, ':user_id' => $_SESSION['user_id']));
 		$count =  $query->rowCount();
         if ($count == 1) {
             return true;
         } else {
             $_SESSION["feedback_negative"][] = FEEDBACK_PROJECT_CREATION_FAILED;
+
         }
         // default return
         return false;

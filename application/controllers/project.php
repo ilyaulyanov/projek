@@ -35,7 +35,7 @@ class Project extends Controller{
 	public function createSave(){
 		$project_model = $this->loadModel('Project');
 		//print_r($_POST);
-		$project_model->create($_POST['project_name'],$_POST['project_description'], $_POST['projectStage'], $_POST['projectTask']);
+		$project_model->create($_POST);
 		//header('location: ' . URL . 'project/index');
 	}
 
