@@ -1,5 +1,6 @@
-$(document).ready(function() {
 
+$(document).ready(function() {
+$('.ui-loader').addClass('hidden');
     // your stuff here
     // ...
 	    //changing input on doubletap
@@ -41,11 +42,11 @@ function prObj(stage,tasks){
 function dataObj(name,description,prObj){
 	this.name = name,
 	this.description = description,
-	this.prObj = prObj
+	this.tree = prObj
 }
 
 
-Zepto(function($){
+$(document).ready(function($){
 		
 		$('#project_create_continue').click(function(){
 			//TODO LIST
@@ -60,24 +61,18 @@ Zepto(function($){
 			//find stages inside form
 		    var found_stages = $('form').find('.project_stage');
 
-		    //converting into jquery elements
-			var jelm = [];
-			for (var i = 0; i < found_stages.length; i++) {
-				jelm[i] = $(found_stages[i]);
-			};
-			//getting an array of objects from form
 			var objArr = [];
-			for (var i = 0; i < jelm.length; i++) {
-				objArr.push(formTasksArray(jelm[i]));
+			//converting into jquery elements
+			//getting an array of objects from form
+			for (var i = 0; i < found_stages.length; i++) {
+				objArr.push(formTasksArray($(found_stages[i])));
 			};
-			/* below is a fix for objects */
+			/* removing last input in the list*/
 			var objLength = objArr.length;
 			objArr[objLength-1].tasks.pop();
-			//console.log(objArr);
 			//create object for ajax
 			var data = formDataObj(objArr);
 			//send it
-			//console.log(data);
 			postDataFromForm(data);
 		}) 	
 
@@ -103,31 +98,34 @@ Zepto(function($){
 			var stage_name = $(task).val();
 		    $(task).nextAll().each(function(){
 		        if( $(this).is('.project_stage')) return false;   
-		        //console.log($(this)[0])
 		        var val = $($(this)[0]).val();
 		        tasks.push(val);
 		        
 		    });
-		    //console.log(tasks);
-
-		    var theTree = new prObj(stage_name, tasks);
-		    return theTree;
-		};
+		    return resObj = new prObj(stage_name, tasks);
+		  	};
 
 
 
 
 	function postDataFromForm(obj){
 		//just in case
-		$.param(obj);
+		//$.param(obj);
+		//JSON.stringify(obj);
 		console.log(obj);
 		
 		//ajax request to create project
 		var request = $.ajax({
 	        type: "post",
 	        url: url+"project/createSave",
-	        data: obj
+	        data: obj,
+	        success: function(resp){
+	        	console.log(resp);
+	        },
+	        error: function(resp){
+	        	console.log(resp);
+	        }
 	    });
 
 	}
-})
+});

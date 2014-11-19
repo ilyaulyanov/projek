@@ -1,5 +1,10 @@
 <div class="content">
-
+<?php var_dump($_SESSION["result"]); 
+//print_r($_SESSION["feedback_negative"]);
+echo "id:".$_SESSION['user_id'];
+echo "name:".$_SESSION['name'];
+echo "desc:".$_SESSION['description'];
+?>
 <h1>Let's get started</h1>
 <h2>Enter the name of your project and a short description</h2>
 <form id="project_create_form"  name="project_create_form">
@@ -17,6 +22,6 @@
             <div id="fsaf">fsaf</div>
             <input type="text" name="projectTask[]" class="project_task" value="Task 4" readonly="true"/>
             <div id="fsaf">fsaf</div>
-            <input type="submit" id="project_create_continue" value='Continue' />
+            <input type="button" id="project_create_continue" value='Continue' />
 </form>
 </div>
