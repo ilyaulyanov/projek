@@ -466,3 +466,5 @@ table.overview-table td.avatar {
 
 .no-pointer{pointer-events:none}
 .project_task{width:10%!important;}
+
+.hidden{display:none;}
