@@ -432,6 +432,7 @@ table.overview-table td.avatar {
         left:0;
         width:35px;
         height:auto;
+        outline:none;
     }
 
     .header {
