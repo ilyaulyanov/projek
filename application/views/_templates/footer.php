@@ -10,6 +10,6 @@
 
         <script type="text/javascript" src="<?php echo URL; ?>public/js/zepto.min.js"></script>
    		<script type="text/javascript" src="<?php echo URL; ?>public/js/application.js"></script>
-
+        <script type="text/javascript" src="<?php echo URL; ?>public/js/navigation.js"></script>
 </body>
 </html>

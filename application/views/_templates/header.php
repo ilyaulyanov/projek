@@ -15,6 +15,8 @@
 </head>
 <body>
 
+    <img src="<?php echo URL; ?>public/img/nav-but.png" id="nav-but" />
+
     <div class="debug-helper-box">
         DEBUG HELPER: you are in the view: <?php echo $filename; ?>
     </div>

@@ -22,7 +22,14 @@ p {
     line-height: 22px;
 }
 
+
+
 /* TODO: this should be part of the real header */
+
+#nav-but {
+    display:none;
+}
+
 .title-box {
     font-size: 25px;
     padding: 15px;
@@ -418,9 +425,27 @@ table.overview-table td.avatar {
 /* basic responsive stuff */
 @media only screen and (max-width:800px) {
 
+    #nav-but {
+        display:block;
+        position:fixed;
+        top:8px;
+        left:0;
+        width:35px;
+        height:auto;
+    }
+
+    .header {
+        display:none;
+        position:fixed;
+        width:50%;
+        top:0px;
+        left:0;
+    }
+
     .header_left_box,
     .header .avatar {
         float: none;
+
     }
 
     .header_right_box {
