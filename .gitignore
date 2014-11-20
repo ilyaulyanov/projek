@@ -41,3 +41,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+.htaccess
+
+application/config/config.php
+
+application/views/_templates/footer.php
