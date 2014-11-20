@@ -9,12 +9,7 @@ echo "desc:".$_SESSION['description'];
 
 <form id="project_create_form"  name="project_create_form">     
 <!-- progressbar -->
-<div id="progresswrapper">
-      <ul id="progressbar">
-            <li class="active">Account Setup</li>
-            <li>Social Profiles</li>
-      </ul>
-</div>
+
 <fieldset>
             <h2 class="fs-title">Let's get started</h2>
             <h3 class="fs-subtitle">Step 1</h3>
@@ -38,7 +33,11 @@ echo "desc:".$_SESSION['description'];
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="continue" class="project_create_continue action-button" id="project_create_continue" value="Continue" />
       </fieldset>
-
-</form>
+<div id="progresswrapper">
+      <ul id="progressbar">
+            <li class="active">Account Setup</li>
+            <li>Social Profiles</li>
+      </ul>
+</div>
 </form>
 </div>
