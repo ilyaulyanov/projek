@@ -26,7 +26,6 @@ class Application
     public function __construct()
     {
         $this->splitUrl();
-
         // check for controller: is the url_controller NOT empty ?
         if ($this->url_controller) {
             // check for controller: does such a controller exist ?

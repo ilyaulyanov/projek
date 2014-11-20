@@ -7,9 +7,16 @@
     <script>
         var url = "<?php echo URL; ?>";
     </script>
+<<<<<<< HEAD
+        <script type="text/javascript" src="<?php echo URL; ?>public/js/zepto.min.js"></script>
+        <!--<script type="text/javascript" src="<?php echo URL; ?>public/js/jquery.mobile-1.4.5.min.js"></script>
+   		<script type="text/javascript" src="<?php echo URL; ?>public/js/application.js"></script>-->
+        <script type="text/javascript" src="<?php echo URL; ?>public/js/application.js"></script>
+=======
         <script type="text/javascript" src="<?php echo URL; ?>public/js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/jquery.mobile-1.4.5.min.js"></script>
    		<script type="text/javascript" src="<?php echo URL; ?>public/js/application.js"></script>
-
+        <script type="text/javascript" src="<?php echo URL; ?>public/js/navigation.js"></script>
+>>>>>>> FETCH_HEAD
 </body>
 </html>
