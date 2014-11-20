@@ -42,10 +42,3 @@ echo "desc:".$_SESSION['description'];
 </form>
 </form>
 </div>
-</div>
-<!-- jQuery -->
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<!-- jQuery easing plugin -->
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-
-  <script src="http://localhost:8080/projek/public/js/form.js"></script>
