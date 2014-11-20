@@ -1,5 +1,5 @@
 html, body {
-    font-family: montserrat, arial, verdana;
+    font-family: arial, verdana, sans-serif;
     padding: 0;
     margin: 0;
     text-align:center;
@@ -439,7 +439,7 @@ table.overview-table td.avatar {
         display:none;
         position:fixed;
         width:50%;
-        top:0px;
+        top:0;
         left:0;
     }
 
@@ -494,3 +494,4 @@ table.overview-table td.avatar {
 .project_task{width:10%!important;}
 
 .hidden{display:none;}
+.shown{display:block;}

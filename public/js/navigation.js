@@ -7,8 +7,13 @@ $(document).ready(function(){
 	});
 
 	$(document).click(function(){
-
+		//if menu is shown
 		$(".header").hide();
+	
+		
+
+		//if menu is not shown
+		 //dont hide
 	});
 });
 

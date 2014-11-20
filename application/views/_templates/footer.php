@@ -12,15 +12,9 @@
 
 
         <script type="text/javascript" src="<?php echo URL; ?>public/js/jquery-2.1.1.min.js"></script>
-
-        <!--TO DO for Drayton
-
-        put this file to local folder
-        -->
-        <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+    
 
         <script type="text/javascript" src="<?php echo URL; ?>public/js/application.js"></script>
-        <script type="text/javascript" src="<?php echo URL; ?>public/js/form.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/navigation.js"></script>
 </body>
 </html>

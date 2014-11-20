@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/style.css" />
     <!-- in case you wonder: That's the cool-kids-protocol-free way to load jQuery -->
    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>-->
-<link rel="stylesheet" href="<?php echo URL; ?>public/css/style.css">
-<link rel="stylesheet" href="<?php echo URL; ?>public/formstyle/reset.css">
-<link rel="stylesheet" href="<?php echo URL; ?>public/formstyle/form.css" media="screen" type="text/css" />
 </head>
 <body>
 
