@@ -1,5 +1,5 @@
 <div class="content">
-            <h1 style="margin-top: 50px;">List of your projects</h1>
+            <h1 style="margin-top: 50px;">Your active project:</h1>
 
     <table>
     <?php

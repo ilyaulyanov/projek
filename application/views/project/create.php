@@ -1,11 +1,5 @@
 <div id="wrapper">  
 <div class="content">
-<?php var_dump($_SESSION["result"]); 
-//print_r($_SESSION["feedback_negative"]);
-echo "id:".$_SESSION['user_id'];
-echo "name:".$_SESSION['name'];
-echo "desc:".$_SESSION['description'];
-?>
 
 <form id="project_create_form"  name="project_create_form">     
 <!-- progressbar -->
@@ -40,4 +34,5 @@ echo "desc:".$_SESSION['description'];
       </ul>
 </div>
 </form>
+<div id="project-message" class="hidden"></div>
 </div>

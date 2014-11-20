@@ -42,26 +42,45 @@ class ProjectModel
     /**
     * Get user projects
     * Will be used for dashboard
-    * @return an array with projects
+    * @return a project object
     */
     public function getProjectForUser(){
+        $sql = "SELECT project_name, project_description, project_id FROM projects WHERE user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':user_id' => $_SESSION['user_id']));
 
+        //fetch just one because we have one project per user
+        return $query->fetchAll();
     }
-
+    /**
+    * Check if user has active projects
+    * Will be used for dashboard
+    * @return false if user has no projects and an error if user has projects
+    */
+    public function checkForActiveProject(){
+        //check if user has an active project
+        $sql = "SELECT project_id FROM projects WHERE user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':user_id' => $_SESSION['user_id']));
+        $count =  $query->rowCount();
+        if($count >= 1){
+            $reply = array('error' => true); // or $result = array('error' => false);
+            echo json_encode($reply);
+            return $reply;
+        }else{
+            return false;
+        }
+    }
     /**
     * Create a project
     * Gets data from a project form
     * @return boolean result(created or not)
     */
     public function create($project){
-
-        //get project name & description from inputs
+        
+            //get project name & description from inputs
         $name = $project["name"];
         $description = $project["description"];
-
-        //for debug
-        $_SESSION["name"] = $project["name"];
-        $_SESSION["description"] = $project["description"];
 
         //first: insert into projects
         $sql = "INSERT INTO projects (project_name, project_description, user_id) VALUES (:project_name, :project_description, :user_id)";
@@ -70,55 +89,47 @@ class ProjectModel
         $query->execute(array(':project_name' => $name,':project_description' => $description, ':user_id' => $_SESSION['user_id']));
         $count =  $query->rowCount();
         if ($count == 1) {
-           // return true;
+           $project_id = $this->db->lastinsertId();
         } else {
             $_SESSION["feedback_negative"][] = FEEDBACK_PROJECT_CREATION_FAILED;
 
         }
-        
-        //second: insert into stages with freshly created project id
-        //get project id
-        //PDO::lastinsertId
-        $sid = "SELECT project_id FROM projects WHERE user_id = :user_id LIMIT 1";
-        $query = $this->db->prepare($sid);
-
-        //var_dump($project);
-        $query->execute(array(':user_id' => $_SESSION['user_id']));
-        $count = $query->rowCount();
-         if ($count == 1) {
-            $result = $query->fetch();
-            $_SESSION["result"] = $result;
-        }else{
-            $_SESSION["result"] = "negative ";
-        }
-        
-
         //insert stages into the table
         //get stage:  $desc = $project["tree"][0][0];
         foreach ($project["tree"] as $obj) {
-            $stage_name = $obj[0];
-            $sql = "INSERT INTO stages_projects (stage_name, project_id) VALUES (:stage_name, :project_id)";
+            $stage_name = $obj["stage"];
+            //insert into stages
+            $sql = "INSERT INTO stages (stage_name) VALUES (:stage_name)";
             $query = $this->db->prepare($sql);
-            $query->execute(array(':stage_name' => $stage_name,':project_id' => $result->project_id));
+            $query->execute(array(':stage_name' => $stage_name));
+            $stage_id = $this->db->lastinsertId();
 
-            //select new stage id 
-            $sql = "SELECT stage_id FROM stages ORDER BY stage_id DESC WHERE user_id = :user_id LIMIT 1";
+            //inserting into projects_stages
+            $sql = "INSERT INTO projects_stages (project_id, stage_id) VALUES (:project_id, :stage_id)";
+            $query = $this->db->prepare($sql);
+            $query->execute(array(':project_id' => $project_id, ':stage_id' => $stage_id));
 
             //getting tasks for that stage and inserting them into "tasks" table
             foreach ($obj["tasks"] as $task) {
-
-            }
+                $task_name = $task;
+                //insert into tasks
+                $sql = "INSERT INTO tasks (task_name) VALUES (:task_name)";
+                $query = $this->db->prepare($sql);
+                $query->execute(array(':task_name' => $task_name));
+                $task_id = $this->db->lastinsertId();
+                //inserting into stages_tasks   
+                $sql = "INSERT INTO stages_tasks (stage_id, task_id) VALUES (:stage_id, :task_id)";
+                $query = $this->db->prepare($sql);
+                $query->execute(array(':stage_id' => $stage_id, ':task_id' => $task_id));
+            }       
+            $reply = array('error' => false); // or $result = array('error' => false);
+            echo json_encode($reply);
+            exit;
         }
 
-
-        
-       
-
-
-
-    	
         // default return
         return false;
+        
     }
 
 }

@@ -57,7 +57,7 @@ $(document).ready(function($){
 			*
 			*/
 			$( "form div" ).remove();
-
+			//$('.action-button').remove();
 			//find stages inside form
 		    var found_stages = $('form').find('.project_stage');
 
@@ -69,6 +69,7 @@ $(document).ready(function($){
 			};
 			/* removing last input in the list*/
 			var objLength = objArr.length;
+			objArr[objLength-1].tasks.pop();
 			objArr[objLength-1].tasks.pop();
 			//create object for ajax
 			var data = formDataObj(objArr);
@@ -119,12 +120,22 @@ $(document).ready(function($){
 	        type: "post",
 	        url: url+"project/createSave",
 	        data: obj,
+	        dataType: 'json',
 	        success: function(resp){
 	        	console.log(resp);
-	        },
-	        error: function(resp){
-	        	console.log(resp);
+	        	if (resp.error) {
+			        
+		       		$('form').hide();
+		        	$('#project-message').removeClass('hidden').html('An active project has been detected. Please make sure you finish it before starting a new one.<br/> <a href="'+url+'dashboard">Go to my dashboard<a>');
+	        	console.log('suc');
+			    }else{
+		        	$('form').hide();
+	        		$('#project-message').removeClass('hidden').html('Congratulations! Your project has been created. <br/> <a href="'+url+'dashboard">Go to my dashboard<a>');
+			    }
+
+	        	
 	        }
+	        	
 	    });
 
 	}

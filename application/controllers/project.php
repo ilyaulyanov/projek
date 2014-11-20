@@ -20,7 +20,12 @@ class Project extends Controller{
 
 	public function create(){
         $project_model = $this->loadModel('Project');
-        $this->view->render('project/create');
+        if(!$project_model->checkForActiveProject()){
+    		$this->view->render('project/create');
+        }else{
+        	header('location: ' . URL . 'dashboard/index');
+        }
+        
         //$project_model->create($_POST['project_name'],$_POST['project_description']);
         //header('location: ' . URL . 'project');
 	}
@@ -35,7 +40,7 @@ class Project extends Controller{
 	public function createSave(){
 		$project_model = $this->loadModel('Project');
 		$project_model->create($_POST);
-		//header('location: ' . URL . 'project/index');
+		header('location: ' . URL . 'project/index');
 	}
 
 

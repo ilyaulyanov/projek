@@ -3,11 +3,20 @@
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
-
-    <h3>This is an area that's only visible for logged in users</h3>
-
-    Try to log out, an go to /dashboard/ again. You'll be redirected to /index/ as you are not logged in.
-    <br/><br/>
-    You can protect a whole section in your app within the according controller (here: controllers/dashboard.php)
-    by placing <span style='font-style: italic;'>Auth::handleLogin();</span> into the constructor.
+	<table>
+    <?php
+        if ($this->projects) {
+            foreach($this->projects as $key => $value) {
+                echo '<tr>';
+                echo '<td>' . htmlentities($value->project_name) . '</td>';
+                echo '<td><a href="'. URL . 'project/edit/' . $value->project_id.'">Edit</a></td>';
+                echo '<td><a href="'. URL . 'project/delete/' . $value->project_id.'">Delete</a></td>';
+                echo '</tr>';
+            }
+        } else {
+            echo 'No projects yet. <a href="'. URL . 'project/create/"">Create some!</a>';
+        }
+    ?>
+    </table>
+    <h2> Items to have on the dashboard page: user profile pic, name, links to change name / pic, current project[done] </h2>
 </div>
