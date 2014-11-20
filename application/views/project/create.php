@@ -6,9 +6,7 @@ echo "id:".$_SESSION['user_id'];
 echo "name:".$_SESSION['name'];
 echo "desc:".$_SESSION['description'];
 ?>
-<link rel="stylesheet" href="http://localhost:8080/projek/public/css/style.css">
-<link rel="stylesheet" href="http://localhost:8080/projek/public/formstyle/reset.css">
-<link rel="stylesheet" href="http://localhost:8080/projek/public/formstyle/form.css" media="screen" type="text/css" />
+
 <form id="project_create_form"  name="project_create_form">     
 <!-- progressbar -->
 <div id="progresswrapper">
