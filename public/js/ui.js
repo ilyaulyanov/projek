@@ -2,7 +2,10 @@
 
 $(document).ready(function(){
 
-	function createAccordion(){
-		console.log(project);
-	}
+	$('a').on('click',function(){
+		$('.range-slider').foundation('slider','set_value', 50);
+		$('div>range-slider-handle').foundation('reflow');
+		console.log($('.range-slider').attr('data-slider'));
+	})
+
 })

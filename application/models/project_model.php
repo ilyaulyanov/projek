@@ -155,11 +155,15 @@ class ProjectModel
         $query->execute(array(':user_id' => $_SESSION['user_id']));
         $result = $query->fetchAll();
         $array = array();
+        $stagesArray = array();
         foreach ($result as $res) {
             # code...
-            $stageTempArray = array('stageName'=>$res->stageName,'taskName'=>$res->taskName);
-            $array[$res->StageId][] = $stageTempArray;
+            //$stageTempArray = array('stageName'=>$res->stageName,'taskName'=>$res->taskName);
+            //$array[$res->StageId][] = $stageTempArray;
+
+            $stagesArray[$res->stageName][] = $res->taskName;
         }
+        $array['stages'] = $stagesArray;
         $array['projectId'] = $res->projectId;
         $array['projectName'] = $res->projectName;
         $array['projectDesc'] = $res->projectDesc;
