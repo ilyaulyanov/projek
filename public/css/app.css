@@ -1,4 +1,4 @@
-/* styling from Drayton */
+/* Styling from Drayton */
 
 .move-right .exit-off-canvas {
 	box-shadow:none;
@@ -60,6 +60,29 @@
 }
 
 #request-password-button {
+	width:100%;
+}
+
+.avatarImg{
+	margin-bottom:1em;
+}
+.avatarImg img{
+	width:100%;
+	height:100%;
+}
+.usernameDashboard {
+	font-size:20px;
+}
+.editAvatar {
+	font-size:15px;
+}
+.editProfileText{
+	font-size:15px;
+}
+.editProfileDashboard{
+	width:100%;
+}
+.editProfileDashboard table{
 	width:100%;
 }
 
