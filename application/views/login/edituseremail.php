@@ -1,12 +1,18 @@
+<div class="editemail">
+<div class="row">
+          <div class="small-10 small-centered columns">
 <div class="content">
-    <h1>Change your email adress</h1>
+    <h2 class="text-center">Change your Email</h2>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
     <form action="<?php echo URL; ?>login/edituseremail_action" method="post">
-        <label>New email adress:</label>
+        <label>Enter New Email:</label>
         <input type="text" name="user_email" required />
-        <input type="submit" value="Submit" />
+        <input class="emailbtn button" type="submit" value="Submit" />
     </form>
+</div>
+</div>
+</div>
 </div>

@@ -1,4 +1,5 @@
     <h2 class="text-center">Dashboard</h2>
+<div class="">
 <div class="row">
     <div class="content">
     <div class="small-4 large-4 columns">
