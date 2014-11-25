@@ -11,6 +11,7 @@
     <!--<link rel="stylesheet" href="<?php echo URL; ?>public/css/style.css" />-->
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/normalize.css" />
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/foundation.css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/app.css" />
     <script src="<?php echo URL; ?>/public/js/vendor/modernizr.js"></script>
     <!-- in case you wonder: That's the cool-kids-protocol-free way to load jQuery -->
    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>-->
@@ -21,16 +22,16 @@
   <!--  <img src="<?php echo URL; ?>public/img/nav-but.png" id="nav-but" />-->
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
-    <div class="debug-helper-box">
+<!--    <div class="debug-helper-box">
         DEBUG HELPER: you are in the view: <?php echo $filename; ?>
     </div>
 
     <div class='title-box'>
         <a href="<?php echo URL; ?>">Projek (very Alpha version)</a>
-    </div>
+    </div>-->
 <div class="contain-to-grid sticky">
   <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-    <a class="left-off-canvas-toggle" href="#" >Menu</a>
+    <a class="left-off-canvas-toggle" href="#" ><img src="public/img/menu.png" id="menuIcon"></a>
   </nav>
 </div>
 
@@ -91,7 +92,6 @@
             <?php endif; ?>
         </ul>
     </aside>
-        <p>laalala</p>
   <!-- close the off-canvas menu -->
 
 

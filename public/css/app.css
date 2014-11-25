@@ -1,0 +1,32 @@
+/* styling from Drayton */
+
+.move-right .exit-off-canvas {
+	box-shadow:none;
+}
+
+#loginSubmit {
+	width:100%;
+}
+
+#menuIcon{
+	margin:1em;
+}
+
+.left-off-canvas-toggle{
+	padding:10px;
+}
+.left-off-canvas-menu * {
+	list-style-type: none;
+	color:#fff;
+}
+
+.login-default-box{
+	margin-top: 3em;
+}
+
+.loginText{
+	text-align:center;
+}
+.off-canvas-wrap {
+	height:100%;
+}
