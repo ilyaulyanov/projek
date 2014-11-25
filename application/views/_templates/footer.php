@@ -20,7 +20,8 @@
         <script>
           $(document).foundation();
         </script>
-
+        <?php if($_SERVER['REQUEST_URI'] == '/projek/project/'){
+        echo "<script src='".URL."/public/js/ui.js'></script>"; }?>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/application.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/navigation.js"></script>
 </body>

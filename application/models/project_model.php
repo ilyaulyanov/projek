@@ -77,6 +77,7 @@ class ProjectModel
     * @return boolean result(created or not)
     */
     public function create($project){
+
         //get project name & description from inputs
         $name = $project["name"];
         $description = $project["description"];
@@ -121,15 +122,54 @@ class ProjectModel
                 $query = $this->db->prepare($sql);
                 $query->execute(array(':stage_id' => $stage_id, ':task_id' => $task_id));
             }       
-            $reply = array('error' => false); // or $result = array('error' => false);
+            
+        }
+        $reply = array('error' => false, 'project' =>$project); // or $result = array('error' => false);
             echo json_encode($reply);
             exit;
-        }
-
         // default return
         return false;
         
     }
 
+    /**
+    * Get a project
+    * Gets a project object
+    * @return $project object
+    */
+    public function getProject(){
+        $sql = "SELECT tasks.task_name as taskName,
+         tasks.task_id AS taskId,
+         stages.stage_name AS stageName,
+         stages.stage_id as StageId,
+         projects.project_name AS projectName,
+         projects.project_id AS projectId,
+         projects.project_description AS projectDesc
+        FROM tasks
+         LEFT JOIN stages_tasks ON tasks.task_id = stages_tasks.task_id
+         LEFT JOIN stages ON stages_tasks.stage_id = stages.stage_id
+         LEFT JOIN projects_stages ON stages.stage_id = projects_stages.stage_id
+         LEFT JOIN projects ON projects_stages.project_id = projects.project_id
+        WHERE projects.user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':user_id' => $_SESSION['user_id']));
+        $result = $query->fetchAll();
+        $array = array();
+        foreach ($result as $res) {
+            # code...
+            $stageTempArray = array('stageName'=>$res->stageName,'taskName'=>$res->taskName);
+            $array[$res->StageId][] = $stageTempArray;
+        }
+        $array['projectId'] = $res->projectId;
+        $array['projectName'] = $res->projectName;
+        $array['projectDesc'] = $res->projectDesc;
+        //$res = json_encode($array);
+        return $array;
+
+       
+
+       // $project[$projectId] = array("name" => $projectName);
+        //return $project;
+    }
 }
 

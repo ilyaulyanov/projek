@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+
 $('.ui-loader').addClass('hidden');
     // your stuff here
     // ...
@@ -139,4 +140,6 @@ $(document).ready(function($){
 	    });
 
 	}
+	
 });
+

@@ -14,17 +14,17 @@ class Project extends Controller{
 	}
 	public function index(){
 		$project_model = $this->loadModel('Project');
-		$this->view->projects = $project_model->getAllProjects();
+		$this->view->project = $project_model->getProject();
 		$this->view->render('project/index');
 	}
 
 	public function create(){
         $project_model = $this->loadModel('Project');
-        if(!$project_model->checkForActiveProject()){
+        //if(!$project_model->checkForActiveProject()){
     		$this->view->render('project/create');
-        }else{
-        	header('location: ' . URL . 'dashboard/index');
-        }
+       // }else{
+        //	header('location: ' . URL . 'dashboard/index');
+       // }
         
         //$project_model->create($_POST['project_name'],$_POST['project_description']);
         //header('location: ' . URL . 'project');

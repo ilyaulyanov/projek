@@ -15,6 +15,7 @@
     <script src="<?php echo URL; ?>/public/js/vendor/modernizr.js"></script>
     <!-- in case you wonder: That's the cool-kids-protocol-free way to load jQuery -->
    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>-->
+    
 </head>
 <body>
 

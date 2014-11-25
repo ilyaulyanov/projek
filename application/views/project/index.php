@@ -1,21 +1,14 @@
+
 <div class="content" >
-            <h1 style="margin-top: 50px;">Project Timeline</h1>
+    <h1 style="margin-top: 50px;">Project Timeline</h1>
+
+        <?php 
+        $project = $this->project;
+            echo "<h2 class='subheader'>{$project['projectName']}</h2>";
+            echo "<h3><small>{$project['projectDesc']}</small></h3>";
+        ?>
+        <div id="msg"></div>
 
 
-
-    <table>
-    <?php
-        if ($this->projects) {
-            foreach($this->projects as $key => $value) {
-                echo '<tr>';
-                echo '<td>' . htmlentities($value->project_name) . '</td>';
-                echo '<td><a href="'. URL . 'project/edit/' . $value->project_id.'">Edit</a></td>';
-                echo '<td><a href="'. URL . 'project/delete/' . $value->project_id.'">Delete</a></td>';
-                echo '</tr>';
-            }
-        } else {
-            echo 'No projects yet. <a href="'. URL . 'project/create/"">Create some!</a>';
-        }
-    ?>
-    </table>
 </div>
+
