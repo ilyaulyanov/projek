@@ -1,8 +1,18 @@
-<div class="content">
-    <h1>Verification</h1>
+<div class="row">
+<div class="small-10 small-centered columns">
+	<div class="content">
+		<div class="verificationPage">
+    <h2 class="text-center">Verification</h2>
 
     <!-- echo out the system feedback (error and success messages) -->
-    <?php $this->renderFeedbackMessages(); ?>
+    <div class="text-center"> <?php $this->renderFeedbackMessages(); ?> </div>
 
-    <a href="<?php echo URL; ?>login/index">Go to login</a>
+<br>
+
+    <a href="<?php echo URL; ?>login/index">
+   <input type="button" id="backtoLogin" class="button"value="Go to Login" />
+	</a>
+	</div>
+</div>
+</div>
 </div>

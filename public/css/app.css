@@ -21,7 +21,7 @@
 }
 
 .login-default-box{
-	margin-top: 3em;
+	margin-top: 2em;
 }
 
 .loginText{
@@ -29,4 +29,28 @@
 }
 .off-canvas-wrap {
 	height:100%;
+}
+.registerBtn {
+	width:100%;
+}
+
+.register-default-box{
+	margin-top: 2.5em;
+}
+
+.feedback{
+	font-size:10px;
+	margin-top: 2em;
+}
+
+.verificationPage{
+	margin-top: 2em;
+}
+
+.verificationPage{
+	margin-top: 2em;
+}
+
+#backtoLogin {
+	width:100%;
 }

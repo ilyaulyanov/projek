@@ -1,9 +1,9 @@
 <div class="row">
           <div class="small-10 small-centered columns">
     <div class="content">
-        <?php $this->renderFeedbackMessages(); ?>
+    <div class="text-center"> <?php $this->renderFeedbackMessages(); ?> </div>
     <div class="login-default-box">
-        <h2>Welcome</h2>
+        <h2 class="text-center">Welcome</h2>
         <form action="<?php echo URL; ?>login/login" method="post">
                 <label>E-mail</label>
                 <input type="text" name="user_name" required />

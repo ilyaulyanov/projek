@@ -31,7 +31,7 @@
     </div>-->
 <div class="contain-to-grid sticky">
   <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-    <a class="left-off-canvas-toggle" href="#" ><img src="public/img/menu.png" id="menuIcon"></a>
+    <a class="left-off-canvas-toggle" href="#" ><img src="<?php echo URL; ?>public/img/menu.png" id="menuIcon"></a>
   </nav>
 </div>
 
