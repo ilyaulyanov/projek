@@ -1,3 +1,5 @@
+
+
 <script src="<?php echo URL; ?>public/js/vendor/jquery.js"></script>
         <script src="<?php echo URL; ?>public/js/foundation.min.js"></script>
 <div class="content" >
