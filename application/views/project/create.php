@@ -1,6 +1,6 @@
-<div id="wrapper">  
-<div class="content">
 
+<div class="row">
+  <div class="small-11 small-centered large-uncentered columns">
 <form id="project_create_form"  name="project_create_form">     
 <!-- progressbar -->
 
@@ -35,4 +35,6 @@
 </div>
 </form>
 <div id="project-message" class="hidden"></div>
+
+</div>
 </div>

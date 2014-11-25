@@ -1,5 +1,7 @@
-<div class="content">
-            <h1 style="margin-top: 50px;">Your active project:</h1>
+<div class="content" >
+            <h1 style="margin-top: 50px;">Project Timeline</h1>
+
+
 
     <table>
     <?php
