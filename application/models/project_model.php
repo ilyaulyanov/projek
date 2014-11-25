@@ -77,8 +77,7 @@ class ProjectModel
     * @return boolean result(created or not)
     */
     public function create($project){
-        
-            //get project name & description from inputs
+        //get project name & description from inputs
         $name = $project["name"];
         $description = $project["description"];
 
