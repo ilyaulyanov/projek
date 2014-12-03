@@ -18,6 +18,7 @@
 <fieldset>
             <h2 class="fs-title">Stages and Tasks</h2>
             <h3 class="fs-subtitle">Step 2</h3>
+<<<<<<< HEAD
             <input type="text" name="projectStage[]" class="project_stage" value="Stage 1" readonly="true" required/>
             <input type="text" name="projectTask[]" class="project_task" value="Task 1" readonly="true"/>
             <input type="text" name="projectTask[]" class="project_task" value="Task 2" readonly="true"/>
@@ -26,6 +27,15 @@
             <input type="text" name="projectTask[]" class="project_task" value="Task 4" readonly="true"/>
             <div id="btn_stage_add">Add a stage</div>
             <input type="button" name="continue" class="project_create_continue action-button" id="project_create_continue" value="Continue" onclick="window.location='http://127.0.0.1:8080/projek/project/index'" />
+=======
+            <input type="text" name="projectStage[]" class="project_stage" value="New Stage" readonly="true" required/>
+            <input type="text" name="projectTask[]" class="project_task" value="New task" readonly="true"/>
+            <div class="new_task_btn">+ Add a task</div>
+            <hr/>
+            <div id="btn_stage_add">+ Add a stage</div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="continue" class="project_create_continue action-button" id="project_create_continue" value="Continue" />
+>>>>>>> FETCH_HEAD
       </fieldset>
       </div>
 </form>

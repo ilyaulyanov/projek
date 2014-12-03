@@ -118,13 +118,21 @@
 
 input.project_task{
 	width:80%;
-	float:right;
 
 }
 #btn_stage_add{
 	clear:both;
 }
 .new_task_btn{
-	float:right;
+	clear:both;
+}
+.btn_delete{
+	position: absolute;
+background: #D64541;
+color: #f9f9f9;
+padding: 0.4em;
+right:2em;
+}
+.project_stage{
 	clear:both;
 }

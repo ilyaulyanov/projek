@@ -23,6 +23,27 @@ $('.ui-loader').addClass('hidden');
 				});
 		}).find('.project_stage').addClass('no-pointer');
 	});
+	var newTaskBtnEl = document.getElementsByClassName('new_task_btn');
+	console.log(newTaskBtnEl);
+	$(newTaskBtnEl).hammer({ }).bind("tap", 
+		function($this){
+			AddTask(this);
+			});
+
+	var stageEl = document.getElementsByClassName('project_stage');
+	$(stageEl).hammer({ }).bind("panend", 
+		function($this){
+			swipeDel(this);
+			});
+
+	var taskEl = document.getElementsByClassName('project_task');
+	$(taskEl).hammer({ }).bind("panend", 
+		function($this){
+			swipeDel(this);
+			});
+
+	
+	//$('body').hammer({ }).bind('tap', function(){$('.btn_delete').hide();});
 
 	$('#btn_stage_add').click(function(){
 		//creating stage input
@@ -33,6 +54,10 @@ $('.ui-loader').addClass('hidden');
 		newStage.setAttribute("value","New Stage");
 		newStage.setAttribute("readonly", "true");
 		newStage.setAttribute("required", "true");
+		$(newStage).hammer({ }).bind("panend", 
+		function($this){
+			swipeDel(this);
+			});
 		$("#btn_stage_add").before( newStage );
 		
 		//creating new task for stage
@@ -54,7 +79,6 @@ $('.ui-loader').addClass('hidden');
 	//Adding a new task
 	function AddTask(obj){
 		$(obj).before(newTask());
-		console.log('yayaya');
 	}
 	
 
@@ -67,9 +91,43 @@ $('.ui-loader').addClass('hidden');
 		newTask.setAttribute("value","New Task");
 		newTask.setAttribute("readonly", "true");
 		newTask.setAttribute("required", "true");
+		$(newTask).hammer({ }).bind("panend", 
+		function($this){
+			swipeDel(this);
+			});
 		return newTask;
 	}
 
+	//swipe to delete for tasks/stages
+	function swipeDel(obj){
+		var binded = obj;
+		var deleteBtn = document.createElement("div");
+		deleteBtn.setAttribute("class","btn_delete");
+		var delTaskBtnText = document.createTextNode("Delete");
+		deleteBtn.appendChild(delTaskBtnText);
+		$(deleteBtn).hammer({ }).bind("tap", function($this, binded){deleteSource(this, obj)});
+		$(obj).before(deleteBtn);
+	}
+
+	//source - pressed button
+	//obj - object to delete
+	function deleteSource(source, obj){
+		console.log(source);
+		console.log(obj);
+		//checking if we are deleting a stage or a task
+		if($(obj).hasClass('project_stage')){
+			$( obj)
+			  .nextUntil( "hr" ).addBack().next()
+			    .remove();
+			$(obj).remove();
+			$(source).remove();
+		}else{
+			$(obj).remove();
+			$(source).remove();
+		}
+		
+	}
+	
 
 
 
