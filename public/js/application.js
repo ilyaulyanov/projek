@@ -23,6 +23,12 @@ $('.ui-loader').addClass('hidden');
 				});
 		}).find('.project_stage').addClass('no-pointer');
 	});
+	var newTaskBtnEl = document.getElementsByClassName('new_task_btn');
+	console.log(newTaskBtnEl);
+	$(newTaskBtnEl).hammer({ }).bind("tap", 
+		function($this){
+			AddTask(this);
+			});
 
 	var stageEl = document.getElementsByClassName('project_stage');
 	$(stageEl).hammer({ }).bind("panend", 
