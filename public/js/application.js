@@ -23,8 +23,7 @@ $('.ui-loader').addClass('hidden');
 				});
 		}).find('.project_stage').addClass('no-pointer');
 	});
-//<input type="text" name="projectStage[]" class="project_stage" value="Stage 2" readonly="true" required/>
-//<input type="text" name="projectTask[]" class="project_task" value="Task 3" readonly="true"/>
+
 	$('#btn_stage_add').click(function(){
 		//creating stage input
 		var newStage = document.createElement("input");
@@ -37,14 +36,7 @@ $('.ui-loader').addClass('hidden');
 		$("#btn_stage_add").before( newStage );
 		
 		//creating new task for stage
-		var newTask = document.createElement("input");
-		newTask.setAttribute("type","text");
-		newTask.setAttribute("name", "projectTask[]");
-		newTask.setAttribute("class", "project_task");
-		newTask.setAttribute("value","New Task");
-		newTask.setAttribute("readonly", "true");
-		newTask.setAttribute("required", "true");
-		$("#btn_stage_add").before( newTask );
+		$("#btn_stage_add").before( newTask() );
 		
 
 		//creating a new task button
@@ -52,7 +44,7 @@ $('.ui-loader').addClass('hidden');
 		newTaskBtn.setAttribute("class", "new_task_btn");
 		var newTaskBtnText = document.createTextNode("+ Add a task");
 		newTaskBtn.appendChild(newTaskBtnText);
-		newTaskBtn.addEventListener("click", function(){AddTask();}, false);
+		newTaskBtn.addEventListener("click", function(){AddTask(this);}, false);
 		$('#btn_stage_add').before(newTaskBtn);
 
 		$('#btn_stage_add').before('<hr/>');
@@ -60,10 +52,23 @@ $('.ui-loader').addClass('hidden');
 	
 
 	//Adding a new task
-	function AddTask(){
+	function AddTask(obj){
+		$(obj).before(newTask());
 		console.log('yayaya');
 	}
 	
+
+	//new task input function
+	function newTask(){
+		var newTask = document.createElement("input");
+		newTask.setAttribute("type","text");
+		newTask.setAttribute("name", "projectTask[]");
+		newTask.setAttribute("class", "project_task");
+		newTask.setAttribute("value","New Task");
+		newTask.setAttribute("readonly", "true");
+		newTask.setAttribute("required", "true");
+		return newTask;
+	}
 
 
 
