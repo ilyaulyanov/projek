@@ -43,17 +43,7 @@
         <!-- whatever you want goes here -->
         <ul>
             <?php if (Session::get('user_logged_in') == true):?>
-        <li <?php if ($this->checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
-                <a href="<?php echo URL; ?>index/index">Index</a>
-            </li>
-            
-            <li <?php if ($this->checkForActiveController($filename, "help")) { echo ' class="active" '; } ?> >
-                <a href="<?php echo URL; ?>help/index">Help</a>
-            </li>
-            <li <?php if ($this->checkForActiveController($filename, "overview")) { echo ' class="active" '; } ?> >
-                <a href="<?php echo URL; ?>overview/index">Overview</a>
-            </li>
-            <?php if (Session::get('user_logged_in') == true):?>
+                    <?php if (Session::get('user_logged_in') == true):?>
             <li <?php if ($this->checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo URL; ?>dashboard/index">Dashboard</a>
             </li>

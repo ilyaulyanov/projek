@@ -15,15 +15,12 @@
             <h2 class="fs-title">Stages and Tasks</h2>
             <h3 class="fs-subtitle">Step 2</h3>
             <input type="text" name="projectStage[]" class="project_stage" value="Stage 1" readonly="true" required/>
-            <div id="fsaf">fsaf</div>
             <input type="text" name="projectTask[]" class="project_task" value="Task 1" readonly="true"/>
             <input type="text" name="projectTask[]" class="project_task" value="Task 2" readonly="true"/>
-            <div id="fsaf">fsaf</div>
             <input type="text" name="projectStage[]" class="project_stage" value="Stage 2" readonly="true" required/>
             <input type="text" name="projectTask[]" class="project_task" value="Task 3" readonly="true"/>
-            <div id="fsaf">fsaf</div>
             <input type="text" name="projectTask[]" class="project_task" value="Task 4" readonly="true"/>
-            <div id="fsaf">fsaf</div>
+            <div id="btn_stage_add">+ Add a stage</div>
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="continue" class="project_create_continue action-button" id="project_create_continue" value="Continue" />
       </fieldset>

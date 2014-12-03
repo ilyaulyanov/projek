@@ -9,7 +9,7 @@
         <?php 
         $project = $this->project;
             echo "<h3 class='subheader text-center'>{$project['projectName']}</h3>";
-            echo "<h3 class='text-center'><small>{$project['projectDesc']}</small></h3>";
+            echo "<h3 class='text-left'><small>{$project['projectDesc']}</small></h3>";
 
             $stagesArray = $project['stages'];
             echo "<div class='stages_wrapper'>";
