@@ -17,9 +17,11 @@
             <input type="text" name="projectStage[]" class="project_stage" value="Stage 1" readonly="true" required/>
             <input type="text" name="projectTask[]" class="project_task" value="Task 1" readonly="true"/>
             <input type="text" name="projectTask[]" class="project_task" value="Task 2" readonly="true"/>
+            <hr/>
             <input type="text" name="projectStage[]" class="project_stage" value="Stage 2" readonly="true" required/>
             <input type="text" name="projectTask[]" class="project_task" value="Task 3" readonly="true"/>
             <input type="text" name="projectTask[]" class="project_task" value="Task 4" readonly="true"/>
+            <hr/>
             <div id="btn_stage_add">+ Add a stage</div>
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="continue" class="project_create_continue action-button" id="project_create_continue" value="Continue" />
