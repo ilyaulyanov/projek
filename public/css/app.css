@@ -110,7 +110,9 @@
 .inner-wrap{
 	height:100%;
 }
-
+#secondStep{
+	   display:none;
+}
 
 /*Ilya */
 
