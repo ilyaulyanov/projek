@@ -73,6 +73,10 @@ $('.ui-loader').addClass('hidden');
 		function($this){
 			swipeDel(this);
 			});
+		$(newStage).hammer({ }).bind("doubletap", 
+		function($this){
+			renameTask(this);
+			});
 		$("#btn_stage_add").before( newStage );
 		
 		//creating new task for stage
@@ -110,6 +114,10 @@ $('.ui-loader').addClass('hidden');
 		$(newTask).hammer({ }).bind("panend", 
 		function($this){
 			swipeDel(this);
+			});
+		$(newTask).hammer({ }).bind("doubletap", 
+		function($this){
+			renameTask(this);
 			});
 		return newTask;
 	}
