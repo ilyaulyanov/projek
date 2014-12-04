@@ -128,10 +128,17 @@ input.project_task{
 }
 .btn_delete{
 	position: absolute;
-background: #D64541;
-color: #f9f9f9;
-padding: 0.4em;
-right:2em;
+	background: #D64541;
+	color: #f9f9f9;
+	padding: 0.4em;
+	right:2em;
+}
+.btn_save{
+	position: absolute;
+	background: #59ABE3;
+	color: #f9f9f9;
+	padding: 0.4em;
+	right:2em;
 }
 .project_stage{
 	clear:both;

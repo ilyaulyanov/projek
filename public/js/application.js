@@ -5,6 +5,7 @@ $('.ui-loader').addClass('hidden');
     // your stuff here
     // ...
 	    //changing input on doubletap
+	    /*
 	$(function () {   
 		$('.project_stage').dblclick(function(){
 			var link = $(this).next();
@@ -23,34 +24,48 @@ $('.ui-loader').addClass('hidden');
 				});
 		}).find('.project_stage').addClass('no-pointer');
 	});
+	*/
+
+
+	//initial button
 	var newTaskBtnEl = document.getElementsByClassName('new_task_btn');
-	console.log(newTaskBtnEl);
 	$(newTaskBtnEl).hammer({ }).bind("tap", 
 		function($this){
 			AddTask(this);
 			});
 
+	//getting stage and task listeners for touch controls
 	var stageEl = document.getElementsByClassName('project_stage');
 	$(stageEl).hammer({ }).bind("panend", 
 		function($this){
 			swipeDel(this);
-			});
+		});
+	$(stageEl).hammer({taps: 2}).bind("doubletap",
+		function($this){
+			renameTask(this);
+		});
+
+		
 
 	var taskEl = document.getElementsByClassName('project_task');
 	$(taskEl).hammer({ }).bind("panend", 
 		function($this){
 			swipeDel(this);
-			});
+		});
+	$(taskEl).hammer({ }).bind("doubletap", 
+		function($this){
+			renameTask(this);
+		});
 
-	
-	//$('body').hammer({ }).bind('tap', function(){$('.btn_delete').hide();});
+	//reset for delete buttons
+	$('body').hammer({ }).bind('tap', function(){$('.btn_delete').hide(); });
 
 	$('#btn_stage_add').click(function(){
 		//creating stage input
 		var newStage = document.createElement("input");
 		newStage.setAttribute("type","text");
 		newStage.setAttribute("name", "projectStage[]");
-		newStage.setAttribute("class", "project_stage");
+		newStage.setAttribute("class", "project_stage no-pointer");
 		newStage.setAttribute("value","New Stage");
 		newStage.setAttribute("readonly", "true");
 		newStage.setAttribute("required", "true");
@@ -66,7 +81,7 @@ $('.ui-loader').addClass('hidden');
 
 		//creating a new task button
 		var newTaskBtn = document.createElement("div");
-		newTaskBtn.setAttribute("class", "new_task_btn");
+		newTaskBtn.setAttribute("class", "new_task_btn no-pointer");
 		var newTaskBtnText = document.createTextNode("+ Add a task");
 		newTaskBtn.appendChild(newTaskBtnText);
 		newTaskBtn.addEventListener("click", function(){AddTask(this);}, false);
@@ -78,6 +93,7 @@ $('.ui-loader').addClass('hidden');
 
 	//Adding a new task
 	function AddTask(obj){
+		console.log(obj);
 		$(obj).before(newTask());
 	}
 	
@@ -100,36 +116,61 @@ $('.ui-loader').addClass('hidden');
 
 	//swipe to delete for tasks/stages
 	function swipeDel(obj){
-		var binded = obj;
-		var deleteBtn = document.createElement("div");
-		deleteBtn.setAttribute("class","btn_delete");
-		var delTaskBtnText = document.createTextNode("Delete");
-		deleteBtn.appendChild(delTaskBtnText);
-		$(deleteBtn).hammer({ }).bind("tap", function($this, binded){deleteSource(this, obj)});
-		$(obj).before(deleteBtn);
+		//we only want to show delete button if input is locked for editing
+		if($(obj).hasClass('no-pointer')){
+			var binded = obj;
+			var deleteBtn = document.createElement("div");
+			deleteBtn.setAttribute("class","btn_delete");
+			var delTaskBtnText = document.createTextNode("Delete");
+			deleteBtn.appendChild(delTaskBtnText);
+			$(deleteBtn).hammer({ }).bind("tap", function($this, binded){deleteSource(this, obj)});
+			$(obj).before(deleteBtn);
+		}else{
+			//input is editable, remove swiping ability
+			return false;
+		}
+		
 	}
 
 	//source - pressed button
 	//obj - object to delete
 	function deleteSource(source, obj){
-		console.log(source);
-		console.log(obj);
 		//checking if we are deleting a stage or a task
 		if($(obj).hasClass('project_stage')){
+			//deleting a stage
 			$( obj)
 			  .nextUntil( "hr" ).addBack().next()
 			    .remove();
 			$(obj).remove();
 			$(source).remove();
 		}else{
+			//deleting a task
 			$(obj).remove();
 			$(source).remove();
 		}
 		
 	}
 	
+	//renaming stages/tasks function
+	function renameTask(obj){
+		console.log('tap');
+		$(obj).prop("readonly",false).removeClass('no-pointer');
+		var binded = obj;
+		var saveBtn = document.createElement('div');
+		saveBtn.setAttribute("class","btn_save");
+		var saveBtnText = document.createTextNode("Save");
+		saveBtn.appendChild(saveBtnText);
+		$(saveBtn).hammer({ }).bind("tap", function($this, binded){saveSource(this, obj)});
+		$(obj).before(saveBtn);
+	}
 
-
+	//saving an input
+	//source - pressed button
+	//obj - object to save
+	function saveSource(source, obj){
+		$(obj).addClass('no-pointer').prop("readonly","true");
+		$(source).remove();
+	}
 
 
 });
