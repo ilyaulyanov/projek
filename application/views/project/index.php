@@ -21,7 +21,7 @@
                 echo "<h3 class='subheader'>$stage_name</h3>";
                 foreach ($stageArr as $task) {  
                        # code...
-                    echo "<div class='content'>
+                    echo "<div class='content' id='timelineContent'>
                     <h3><small>".$task['task_name']."</small></h3>
   <div class='small-10 medium-11 columns'>
     <div class='range-slider' data-slider='".$task['task_completion']."' data-options='step: 1;display_selector: #sliderOutput".$task['task_id']."; '>
