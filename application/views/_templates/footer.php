@@ -16,7 +16,7 @@
 
        <!-- <script type="text/javascript" src="<?php echo URL; ?>public/js/jquery-2.1.1.min.js"></script>-->
 
-        <script src="<?php echo URL; ?>public/js/form.js"></script>
+
         <script src="<?php echo URL; ?>public/js/vendor/jquery.js"></script>
         <script src="<?php echo URL; ?>public/js/foundation.min.js"></script>
         <script src="<?php echo URL; ?>public/js/hammer.min.js"></script>
@@ -24,6 +24,7 @@
         <script>
           $(document).foundation();
         </script>
+        <script src="<?php echo URL; ?>public/js/form.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/ui.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/application.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/navigation.js"></script>
