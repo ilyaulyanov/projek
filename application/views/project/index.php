@@ -22,9 +22,8 @@
                 foreach ($stageArr as $task) {  
                        # code...
 
-                    echo "<div class='content row' id='timelineContent'>";
 
-                    echo "<div class='content' >
+                    echo "<div class='content row' id='timelineContent'>
 
                     <h3><small>".$task['task_name']."</small></h3>
   <div class='small-10 medium-11 columns'>
