@@ -1,8 +1,7 @@
 <div class="row">
           <div class="small-12 large-10 small-centered columns">
 
-<script src="<?php echo URL; ?>public/js/vendor/jquery.js"></script>
-        <script src="<?php echo URL; ?>public/js/foundation.min.js"></script>
+
     <h2 class="text-left">Project Timeline</h2>
 
         <?php 
