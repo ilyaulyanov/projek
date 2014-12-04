@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/foundation.css" />
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/foundation-icons.css" />
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/app.css" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500|Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
     <script src="<?php echo URL; ?>/public/js/vendor/modernizr.js"></script>
     <!-- in case you wonder: That's the cool-kids-protocol-free way to load jQuery -->
    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>-->

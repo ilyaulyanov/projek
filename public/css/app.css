@@ -1,3 +1,10 @@
+/* global styles */
+h2{
+	font-family: 'Raleway', sans-serif;
+color:#666;}
+
+
+
 /* Styling from Drayton */
 
 .move-right .exit-off-canvas {
@@ -116,6 +123,8 @@
 
 /*Ilya */
 
+
+/* project/create form */
 input.project_task{
 	width:80%;
 
@@ -160,4 +169,47 @@ input.project_task{
 #project-message>a{
 	color:#fff;
 	border-bottom:1px dashed #eee;
+}
+
+
+/*slider styling */
+.range-slider-active-segment{height: 2rem;
+	background:#19B5FE;
+}
+.range-slider{height: 2rem;
+	margin-top:0;
+	border:0;}
+.range-slider-handle{
+	top:0;
+	height:2rem;
+	background:#22A7F0;
+}
+.stages_wrapper h3{margin-bottom:0;font-family: 'Raleway', sans-serif;}
+.completion_indicator{
+	font-weight: 300;
+	font-family: 'Roboto Slab', sans-serif;
+	color:#333;
+	font-size:3em;
+}
+.completion{
+	margin-top:-1.5em; padding:0;
+}
+
+.stages_wrapper>div>.row{
+	margin-bottom:1em;
+	border:1px solid #eee;
+}
+.stage-wrapper{border:1px solid #eee; margin-bottom:1em;}
+.stage-wrapper>.content>h3{margin-left:0.5em;}
+.project_desc{
+	font-family: 'Raleway', sans-serif;
+	color:#333;
+	font-weight: 500;
+	font-style: italic;
+}
+.project_name{
+	font-family: 'Roboto Slab', sans-serif;
+	color:#333;
+	font-weight: 500;
+	text-transform: uppercase;
 }

@@ -140,6 +140,7 @@ class ProjectModel
     public function getProject(){
         $sql = "SELECT tasks.task_name as taskName,
          tasks.task_id AS taskId,
+         tasks.task_completion AS taskCompletion,
          stages.stage_name AS stageName,
          stages.stage_id as StageId,
          projects.project_name AS projectName,
@@ -156,18 +157,23 @@ class ProjectModel
         $result = $query->fetchAll();
         $array = array();
         $stagesArray = array();
+        $taskArray = array();
         foreach ($result as $res) {
             # code...
             //$stageTempArray = array('stageName'=>$res->stageName,'taskName'=>$res->taskName);
             //$array[$res->StageId][] = $stageTempArray;
 
-            $stagesArray[$res->stageName][] = $res->taskName;
+            
+            $taskArray['task_name'] = $res->taskName;
+            $taskArray['task_completion'] = $res->taskCompletion;
+            $taskArray['task_id'] = $res->taskId;
+            $stagesArray[$res->stageName][] = $taskArray;
+            //$stagesArray[$res->stageName][] = $res->taskCompletion;
         }
         $array['stages'] = $stagesArray;
         $array['projectId'] = $res->projectId;
         $array['projectName'] = $res->projectName;
         $array['projectDesc'] = $res->projectDesc;
-        //$res = json_encode($array);
         return $array;
 
        
