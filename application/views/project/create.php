@@ -10,7 +10,7 @@
             <h3 class="fs-subtitle">Step 1</h3>
         <input type="text" id="project_name" name="project_name" placeholder="My Project" autofocus required />
         <textarea rows="4" id="project_description" name="project_description" placeholder="Project description" ></textarea>
-            <input type="button" id="firstBtn" name="next" class="next action-button" value="Next" />
+            <input type="button" id="firstBtn" name="next" class="next action-button button" value="Next" />
 </fieldset>
 </div>
     <div id="secondStep">
@@ -22,8 +22,9 @@
             <div class="new_task_btn">+ task</div>
             <hr/>
             <div id="btn_stage_add">+ stage</div>
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="button" name="continue" class="project_create_continue action-button" id="project_create_continue" value="Continue"/>
+            <input type="button" id="secondBtn" name="previous" class="previous action-button button" value="Previous" />
+            <input type="button" onclick="location.href='<?php echo URL; ?>project/index'" id="thirdBtn" name="continue" class="project_create_continue action-button button" id="project_create_continue" value="Continue"/>
+
 
       </fieldset>
     </div>

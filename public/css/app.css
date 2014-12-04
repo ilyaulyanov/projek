@@ -120,7 +120,18 @@ color:#666;}
 #secondStep{
 	   display:none;
 }
-
+#firstBtn{
+	text-align:center;
+	width:100%;
+}
+#secondBtn{
+	text-align:center;
+	width:100%;
+}
+#thirdBtn{
+	text-align:center;
+	width:100%;
+}
 /*Ilya */
 
 
@@ -170,8 +181,6 @@ input.project_task{
 	color:#fff;
 	border-bottom:1px dashed #eee;
 }
-
-
 /*slider styling */
 .range-slider-active-segment{height: 2rem;
 	background:#19B5FE;
