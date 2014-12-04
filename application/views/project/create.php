@@ -8,7 +8,7 @@
 <fieldset>
             <h2 class="fs-title">Let's get started</h2>
             <h3 class="fs-subtitle">Step 1</h3>
-        <input type="text" id="project_name" name="project_name" value="My Project" autofocus required />
+        <input type="text" id="project_name" name="project_name" placeholder="My Project" autofocus required />
         <textarea rows="4" id="project_description" name="project_description" placeholder="Project description" ></textarea>
             <input type="button" id="firstBtn" name="next" class="next action-button" value="Next" />
 </fieldset>
@@ -19,9 +19,9 @@
             <h3 class="fs-subtitle">Step 2</h3>
             <input type="text" name="projectStage[]" class="project_stage no-pointer" value="New Stage" readonly="true" required/>
             <input type="text" name="projectTask[]" class="project_task no-pointer" value="New task" readonly="true"/>
-            <div class="new_task_btn">+ Add a task</div>
+            <div class="new_task_btn">+ task</div>
             <hr/>
-            <div id="btn_stage_add">+ Add a stage</div>
+            <div id="btn_stage_add">+ stage</div>
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="continue" class="project_create_continue action-button" id="project_create_continue" value="Continue"/>
 

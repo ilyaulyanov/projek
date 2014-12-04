@@ -11,6 +11,7 @@
     <!--<link rel="stylesheet" href="<?php echo URL; ?>public/css/style.css" />-->
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/normalize.css" />
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/foundation.css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/foundation-icons.css" />
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/app.css" />
     <script src="<?php echo URL; ?>/public/js/vendor/modernizr.js"></script>
     <!-- in case you wonder: That's the cool-kids-protocol-free way to load jQuery -->

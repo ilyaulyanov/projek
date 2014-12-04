@@ -1,31 +1,12 @@
+/*
+* Front-end stuff
+* Author: Ilya Ulyanov
+*/
+
 
 $(document).ready(function() {
 
 $('.ui-loader').addClass('hidden');
-    // your stuff here
-    // ...
-	    //changing input on doubletap
-	    /*
-	$(function () {   
-		$('.project_stage').dblclick(function(){
-			var link = $(this).next();
-			$(this).prop("readonly",false).removeClass('no-pointer');
-			if($(link).is('div')){
-				console.log('yes');
-			}else{
-				$(this).after('<div class="project_name_save" id="project_stage_1_save">Save</div>');
-			}
-				//save button for input
-				$('.project_name_save').click(function(){
-					var link = $(this).prev();
-					link.attr("readonly", true);
-					$(this).remove();
-					console.log(this);
-				});
-		}).find('.project_stage').addClass('no-pointer');
-	});
-	*/
-
 
 	//initial button
 	var newTaskBtnEl = document.getElementsByClassName('new_task_btn');
@@ -85,8 +66,8 @@ $('.ui-loader').addClass('hidden');
 
 		//creating a new task button
 		var newTaskBtn = document.createElement("div");
-		newTaskBtn.setAttribute("class", "new_task_btn no-pointer");
-		var newTaskBtnText = document.createTextNode("+ Add a task");
+		newTaskBtn.setAttribute("class", "new_task_btn");
+		var newTaskBtnText = document.createTextNode("+ task");
 		newTaskBtn.appendChild(newTaskBtnText);
 		newTaskBtn.addEventListener("click", function(){AddTask(this);}, false);
 		$('#btn_stage_add').before(newTaskBtn);
@@ -97,7 +78,6 @@ $('.ui-loader').addClass('hidden');
 
 	//Adding a new task
 	function AddTask(obj){
-		console.log(obj);
 		$(obj).before(newTask());
 	}
 	
@@ -107,7 +87,7 @@ $('.ui-loader').addClass('hidden');
 		var newTask = document.createElement("input");
 		newTask.setAttribute("type","text");
 		newTask.setAttribute("name", "projectTask[]");
-		newTask.setAttribute("class", "project_task");
+		newTask.setAttribute("class", "project_task no-pointer");
 		newTask.setAttribute("value","New Task");
 		newTask.setAttribute("readonly", "true");
 		newTask.setAttribute("required", "true");

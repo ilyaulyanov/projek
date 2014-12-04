@@ -24,7 +24,7 @@
         <script>
           $(document).foundation();
         </script>
-        <script src="<?php echo URL; ?>public/js/form.js"></script>
+        <script type="text/javascript" src="<?php echo URL; ?>public/js/form.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/ui.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/application.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/navigation.js"></script>

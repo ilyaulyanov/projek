@@ -122,9 +122,17 @@ input.project_task{
 }
 #btn_stage_add{
 	clear:both;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	cursor: pointer;
+	font-weight:700;
 }
 .new_task_btn{
-	clear:both;
+	clear: both;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	cursor: pointer;
+	font-weight:700;
 }
 .btn_delete{
 	position: absolute;
