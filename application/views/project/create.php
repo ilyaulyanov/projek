@@ -23,7 +23,7 @@
             <hr/>
             <div id="btn_stage_add">+ stage</div>
             <input type="button" id="secondBtn" name="previous" class="previous action-button button" value="Previous" />
-            <input type="button" onclick="location.href='<?php echo URL; ?>project/index'" id="thirdBtn" name="continue" class="project_create_continue action-button button" id="project_create_continue" value="Continue"/>
+            <input type="button" name="continue" class="project_create_continue action-button button thirdBtn" id="project_create_continue" value="Continue"/>
 
 
       </fieldset>
