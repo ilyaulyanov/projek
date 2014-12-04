@@ -1,7 +1,7 @@
 /* global styles */
 h2{
 	font-family: 'Raleway', sans-serif;
-color:#666;}
+color:#6f6f6f;}
 
 
 
@@ -9,6 +9,14 @@ color:#666;}
 
 .move-right .exit-off-canvas {
 	box-shadow:none;
+}
+
+label {
+	color:#6f6f6f;
+}
+
+h3{
+	color:#6f6f6f;
 }
 
 #loginSubmit {
@@ -46,8 +54,9 @@ color:#666;}
 }
 
 .feedback{
-	font-size:20px;
+	font-size:18px;
 	margin-top: 2em;
+	color:#6f6f6f;
 }
 
 .verificationPage{
@@ -73,13 +82,24 @@ color:#666;}
 .avatarImg{
 	margin-bottom:1em;
 }
+
+#avatarDescription{
+	color:#6f6f6f;
+}
+
+#fileChosen{
+	color:#6f6f6f;
+}
+
 .avatarImg img{
 	width:100%;
 	height:100%;
 }
 .usernameDashboard {
 	font-size:20px;
+	color:#6f6f6f;
 }
+
 .editAvatar {
 	font-size:15px;
 }
@@ -88,11 +108,17 @@ color:#666;}
 }
 .editProfileDashboard{
 	width:100%;
+	text-align:center;
+	color:#6f6f6f;
 }
 .editProfileDashboard table{
 	width:100%;
+	height:3em;
 }
-
+.editProfileDashboard td{
+	font-size:15px;
+	color:#6f6f6f;
+}
 .uploadavatar{
 	margin-top:2em;
 }
@@ -108,6 +134,7 @@ color:#666;}
 .editemail{
 	margin-top:2em;
 }
+
 .emailbtn{
 	width:100%;
 }
@@ -128,10 +155,14 @@ color:#666;}
 	text-align:center;
 	width:100%;
 }
-#thirdBtn{
+.thirdBtn{
 	text-align:center;
 	width:100%;
 }
+#timelineContent{
+	margin-bottom:3em;
+}
+
 /*Ilya */
 
 
@@ -146,6 +177,7 @@ input.project_task{
 	font-size: 0.8em;
 	cursor: pointer;
 	font-weight:700;
+	color:#6f6f6f;
 }
 .new_task_btn{
 	clear: both;
@@ -153,6 +185,7 @@ input.project_task{
 	font-size: 0.8em;
 	cursor: pointer;
 	font-weight:700;
+	color:#6f6f6f;
 }
 .btn_delete{
 	position: absolute;
@@ -188,7 +221,7 @@ input.project_task{
 .range-slider{height: 2rem;
 	margin-top:0;
 	border:0;
-margin-bottom:2em;}
+margin-bottom:0em;}
 .range-slider-handle{
 	top:0;
 	height:2rem;
@@ -198,7 +231,7 @@ margin-bottom:2em;}
 .completion_indicator{
 	font-weight: 300;
 	font-family: 'Roboto Slab', sans-serif;
-	color:#333;
+	color:#6f6f6f;
 	font-size:3em;
 }
 .completion{
@@ -213,7 +246,7 @@ margin-bottom:2em;}
 .stage-wrapper>.content>h3{margin-left:0.5em;}
 .project_desc{
 	font-family: 'Raleway', sans-serif;
-	color:#333;
+	color:#6f6f6f;
 	font-weight: 500;
 	font-style: italic;
 }
@@ -226,4 +259,8 @@ margin-bottom:2em;}
 .btn_save_task{
 	position:absolute;
 	right:2em;
+	font-family: 'Raleway', sans-serif;
+	color:#6f6f6f;
+	font-weight: normal;
+
 }
