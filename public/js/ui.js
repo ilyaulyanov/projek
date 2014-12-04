@@ -9,8 +9,9 @@ $(document).ready(function(){
 	})
 */
 
-	$('[data-slider]').on('change.fndtn.slider', function(){
+	$('[data-slider]').on('change.fndtn.slider', function($this){
   // do something when the value changes
+  console.log($(this).attr("data-slider"));
 });
 
 })
