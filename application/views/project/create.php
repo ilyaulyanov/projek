@@ -2,7 +2,7 @@
   <div class="small-11 small-centered large-uncentered columns">
 
 <form id="project_create_form"  name="project_create_form">     
-<!-- progressbar -->
+<!-- progressbar-->
 
     <div id="firstStep">
 <fieldset>
@@ -26,8 +26,10 @@
             <input type="button" name="continue" class="project_create_continue action-button" id="project_create_continue" value="Continue"/>
 
       </fieldset>
-      </div>
+    </div>
 </form>
-
+    <div data-alert id="project-message" class="alert-box success radius hidden">
+    <a href="#" class="close">&times;</a>
+    </div>
 </div>
 </div>

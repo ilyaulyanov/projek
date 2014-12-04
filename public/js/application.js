@@ -141,7 +141,6 @@ $('.ui-loader').addClass('hidden');
 	
 	//renaming stages/tasks function
 	function renameTask(obj){
-		console.log('tap');
 		$(obj).prop("readonly",false).removeClass('no-pointer');
 		var binded = obj;
 		var saveBtn = document.createElement('div');
@@ -187,11 +186,14 @@ $(document).ready(function($){
 			* REMOVE ALL DIVS INSIDE FORM
 			*
 			*/
-			$( "form div" ).remove();
-			//$('.action-button').remove();
+			//taking out the trash
+			$("fieldset hr").remove();
+			$('fieldset input.action-button').remove();
+			$('#btn_stage_add').remove();
+			$('.new_task_btn').remove();
 			//find stages inside form
-		    var found_stages = $('form').find('.project_stage');
-
+		    var found_stages = $('fieldset').find('.project_stage');
+		    console.log(found_stages);
 			var objArr = [];
 			//converting into jquery elements
 			//getting an array of objects from form
@@ -200,10 +202,10 @@ $(document).ready(function($){
 			};
 			/* removing last input in the list*/
 			var objLength = objArr.length;
-			objArr[objLength-1].tasks.pop();
-			objArr[objLength-1].tasks.pop();
+
 			//create object for ajax
 			var data = formDataObj(objArr);
+			console.log(data);
 			//send it
 			postDataFromForm(data);
 		}) 	
