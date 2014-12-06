@@ -227,19 +227,35 @@ margin-bottom:0em;}
 	height:2rem;
 	background:#22A7F0;
 }
-.stages_wrapper h3{margin-bottom:0;font-family: 'Raleway', sans-serif;}
+.range-slider.disabled .range-slider-handle {
+background: #D2D7D3;
+cursor: default;
+opacity: 1;
+}
+.range-slider.disabled, {
+background: #fafafa;
+cursor: default;
+opacity: 0.4;
+}
+.range-slider.disabled>.range-slider-active-segment{
+	background:#ECECEC;
+}
+
+
+.stages_wrapper h3{margin-bottom:0;font-family: 'Raleway', sans-serif; color:#333;}
+.stages_wrapper h3 small{color:#333;}
 .completion_indicator{
 	font-weight: 300;
 	font-family: 'Roboto Slab', sans-serif;
 	color:#6f6f6f;
 	font-size:3em;
 }
+.completion_percentage{color:#6f6f6f; }
 .completion{
 	margin-top:-1.5em; padding:0;
 }
 
 .stages_wrapper>div>.row{
-	margin-bottom:1em;
 	background:#E4F1FE;
 }
 .stage-wrapper{border:1px solid #eee; margin-bottom:1em;}
@@ -256,11 +272,21 @@ margin-bottom:0em;}
 	font-weight: 500;
 	text-transform: uppercase;
 }
+div.stage-header.row{background:transparent;}
 .btn_save_task{
 	position:absolute;
-	right:2em;
+	right:0em;
 	font-family: 'Raleway', sans-serif;
 	color:#6f6f6f;
 	font-weight: normal;
 
 }
+.stage-average{ font-family: 'Roboto Slab', sans-serif; font-weight:300; color:#333;}
+.stage-progress{padding:0.25em 0em 0em 0em;}
+.stage-progress>div.secondary{
+margin-bottom: 0;
+height: 0.25rem;
+padding: 0;
+border:0;
+background:#f9f9f9;}
+.stage-progress>.progress.secondary>.meter{background:#87D37C;}

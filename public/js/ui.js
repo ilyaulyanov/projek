@@ -8,7 +8,9 @@ $(document).ready(function(){
 		console.log($('.range-slider').attr('data-slider'));
 	})
 */
-
+	$('.exit-off-canvas').on('click', function(){
+		$(document).foundation('reflow');
+	})
 
 	//$('div>range-slider-handle').foundation('reflow');
 	var handle = document.getElementsByClassName('range-slider-handle');
@@ -29,10 +31,7 @@ $(document).ready(function(){
 	}
 	function handlePan(e, obj){
 		var obj = e.target;
-		var value = $(obj).attr("aria-valuenow");
-		console.log(obj);
-		console.log(value);
-		saveTask(obj,value);
+		saveTaskBtn(obj);
 	}
 
 	function handlePressUp(){
@@ -44,29 +43,94 @@ $(document).ready(function(){
 		console.log('yaya');
 	}
 
-	function saveTask(obj,value){
+	//obj = slider
+	function saveTaskBtn(obj){
+		var slider = obj;
+
+		//make current range slider active
+		$(obj).parent().addClass('task-active');
+
+		//disable other range-sliders
+		$('.range-slider:not(.task-active, .task-complete)').animate({ opacity: 0.5 }, 500).addClass("disabled");
 		var saveBtn = document.createElement('div');
 		saveBtn.setAttribute("class","btn_save_task");
 		var saveBtnText = document.createTextNode("Save");
 		saveBtn.appendChild(saveBtnText);
+		//attach tap handler to the button
+		$(saveBtn).hammer({ }).bind("tap", function($this){
+			saveTask(this,slider)});
 		var found = $(obj).closest('.content');
-		console.log(found[0]);
-		
-			if($('.btn_save_task').length > 0){
-				return false;
-			}else{
-				$(found).prepend(saveBtn);
-			}
-		
-		//console.log(find_btn[0]);
-		
-		
-
-
-		
-
+		if($('.btn_save_task').length > 0){
+			return false;
+		}else{
+			$(found).prepend(saveBtn);
+			$(saveBtn).animate({right:'+=2em'},300);
+		}
 	}
 	
+	//obj - button
+	//slider - this range-slider
+	function saveTask(obj,slider){
+		var value = $(slider).attr("aria-valuenow");
+		//console.log();
+		var str = $(slider).parent().data("options").substr(39);
+		
+		var idStr = str.substr(0, str.length-2);
+		//task done
+		if(value == 100){
+			$(slider).closest('.content').css('background', "#87D37C").css("opacity","0.3");
+			$(slider).parent().addClass('task-complete');
+		}else{
+			$(slider).closest('.content').css('background', "#E4F1FE").css("opacity","1");
+
+		}
+		$(obj).remove();
+		$('.range-slider:not(.task-complete)').animate({ opacity: 1 }, 500).removeClass("disabled");
+		$(slider).parent().removeClass("task-active");
+		$(slider).foundation('reflow');
+
+		var taskData = {
+			taskId : idStr,
+			taskCompletion : value 
+		}
+		$.param(taskData);
+		console.log(taskData);
+		//ajax request to update task
+		var request = $.ajax({
+	        type: "post",
+	        url: url+"project/taskSave",
+	        data: taskData,
+	        dataType: 'html',
+	        success: function(resp){
+	        	console.log('success');
+	        	var stage_request = $.ajax({
+			        type: "get",
+			        url: url+"project/getProgress",
+			        data: taskData,
+			        dataType: 'json',
+			        success: function(resp){
+		        	//console.log(resp); 
+		        	updateMeter(resp.average)
+		        }
+		   		});
+	        	/*
+	        	if (resp.error) {
+		       		console.log('yayaya');
+	        	console.log('suc');
+			    }else{
+		        	console.log('ff');
+			    }*/
+	        }
+	        	
+	    });
+	}
+
+	function updateMeter(array){
+		console.log(array.average);
+		console.log(array.stage_id);
+		$('#meter-stage-'+array.stage_id).animate({ width: array.average+"%"},300);
+		$('#display-stage-'+array.stage_id).html(Math.round(array.average));
+	}
 
 
 })

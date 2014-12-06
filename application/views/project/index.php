@@ -17,12 +17,30 @@
             echo "<div class='stages_wrapper row'>";
             $i = 0;
             foreach ($stagesArray as $stage_name => $stageArr) {
+              //Finding average for tasks
+              $avrage = array('completion' => 0); #prevent notice  
+              $i = count($stageArr["tasks"]);
+              $c = 0; $f = 0;
+              foreach($stageArr["tasks"] as $value)
+              {$avrage['completion'] += $value['task_completion']; if($value['task_completion']==100){$f++;} $c++;}
+              # UPDATE : check zero value before using division .
+              $avrage['completion'] = ($avrage['completion']?floor($avrage['completion']/$i):0);   #round value
+
+
+
                 echo "<div id='stage".$i."' class='stage-wrapper content small-12 medium-12 columns'>";
-                echo "<h3 class='subheader'>$stage_name</h3>";
-                foreach ($stageArr as $task) {  
+                echo "<div class='stage-header row'>
+  <div class='large-8 columns'><h3 class='subheader'>$stage_name</h3></div>
+  <div class='large-4 columns stage-progress'><span class='stage-average' ><span id='display-stage-{$stageArr['stage_id'][0]}'>{$avrage['completion']}</span>% completed ($f / $c)</span><div class='progress secondary '>
+  <span class='meter' style='width: {$avrage['completion']}%' id='meter-stage-{$stageArr['stage_id'][0]}'></span>
+</div></div>
+</div>";
+
+
+
+
+                foreach ($stageArr["tasks"] as $task) {  
                        # code...
-
-
                     echo "<div class='content row' id='timelineContent'>
 
                     <h3><small>".$task['task_name']."</small></h3>
@@ -35,7 +53,7 @@
     
   </div>
 <div class='small-2 medium-1 columns completion'>
-    <span class='completion_indicator' id='sliderOutput".$task['task_id']."'></span>%
+    <span class='completion_indicator' id='sliderOutput".$task['task_id']."'></span><span class='completion_percentage'>%</span>
     </div>
 </div> ";
 

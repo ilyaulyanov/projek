@@ -158,28 +158,72 @@ class ProjectModel
         $array = array();
         $stagesArray = array();
         $taskArray = array();
+        $idArr = array();
         foreach ($result as $res) {
-            # code...
-            //$stageTempArray = array('stageName'=>$res->stageName,'taskName'=>$res->taskName);
-            //$array[$res->StageId][] = $stageTempArray;
-
-            
             $taskArray['task_name'] = $res->taskName;
             $taskArray['task_completion'] = $res->taskCompletion;
             $taskArray['task_id'] = $res->taskId;
-            $stagesArray[$res->stageName][] = $taskArray;
-            //$stagesArray[$res->stageName][] = $res->taskCompletion;
+            $stagesArray[$res->stageName]["tasks"][] = $taskArray;
+
+            $stagesArray[$res->stageName]["stage_id"][] = $res->StageId;
+
+           // $stagesArray['stage_id'][] = $res->StageId;
         }
+
         $array['stages'] = $stagesArray;
         $array['projectId'] = $res->projectId;
         $array['projectName'] = $res->projectName;
         $array['projectDesc'] = $res->projectDesc;
+
+
         return $array;
+        exit;
 
-       
+    }
 
-       // $project[$projectId] = array("name" => $projectName);
-        //return $project;
+    public function updateTask($taskData){  
+        print_r($taskData);
+        $task_completion = $taskData["taskCompletion"];
+        $task_completion = intval($task_completion);
+        $task_id = $taskData["taskId"];
+        $task_id = intval($task_id);
+        $sql = "UPDATE tasks SET task_completion = :task_completion WHERE `task_id` = :task_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':task_completion' => $task_completion, ':task_id' => $task_id));
+    }
+
+    public function getStageProgress($taskId){
+        $task_id = $taskId['taskId'];
+        $sql = "SELECT stage_id FROM stages_tasks WHERE task_id = :task_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':task_id' => $task_id));
+        $result = $query->fetch();
+        $stage_id = $result->stage_id;
+        $stage_id = intval($stage_id);
+
+        $sql = "SELECT `task_completion` FROM `tasks`
+LEFT JOIN `stages_tasks` ON `stages_tasks`.`task_id` = `tasks`.`task_id`
+WHERE `stages_tasks`.`stage_id` = :stage_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':stage_id' => $stage_id));
+        $res  = $query->fetchAll();
+        $i = count($res);
+        $total = 0;
+        foreach ($res as $r) {
+            $total += $r->task_completion;
+
+            //echo $i;
+            //echo $r->task_completion;
+        }
+        $avg = $total/$i;
+        $array = array();
+        $array['average'] = $avg;
+        $array['stage_id'] = $stage_id;
+        $array['task_id'] = $task_id;
+
+        $reply = array('error' => false, 'average' =>$array); // or $result = array('error' => false);
+            echo json_encode($reply);
+            exit;
     }
 }
 

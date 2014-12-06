@@ -26,8 +26,6 @@ class Project extends Controller{
         //	header('location: ' . URL . 'dashboard/index');
        // }
         
-        //$project_model->create($_POST['project_name'],$_POST['project_description']);
-        //header('location: ' . URL . 'project');
 	}
 
 	//a controller function for a page that will receive form data from /create and present it for a review before submitting it to a db
@@ -43,5 +41,15 @@ class Project extends Controller{
 		header('location: ' . URL . 'project/index');
 	}
 
+	public function taskSave(){
+		$project_model = $this->loadModel('Project');
+		$project_model->updateTask($_POST);
+		header('location: ' . URL . 'project/index');
+	}
+
+	public function getProgress(){
+		$project_model = $this->loadModel('Project');
+		$project_model->getStageProgress($_GET);
+	}
 
 }
