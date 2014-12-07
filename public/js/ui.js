@@ -31,7 +31,7 @@ $(document).ready(function(){
 	}
 	function handlePan(e, obj){
 		var obj = e.target;
-		saveTaskBtn(obj);
+		saveTask(obj);
 	}
 
 	function handlePressUp(){
@@ -70,7 +70,7 @@ $(document).ready(function(){
 	
 	//obj - button
 	//slider - this range-slider
-	function saveTask(obj,slider){
+	function saveTask(slider){
 		var value = $(slider).attr("aria-valuenow");
 		//console.log();
 		var str = $(slider).parent().data("options").substr(39);
@@ -84,7 +84,6 @@ $(document).ready(function(){
 			$(slider).closest('.content').css('background', "#E4F1FE").css("opacity","1");
 
 		}
-		$(obj).remove();
 		$('.range-slider:not(.task-complete)').animate({ opacity: 1 }, 500).removeClass("disabled");
 		$(slider).parent().removeClass("task-active");
 		$(slider).foundation('reflow');
