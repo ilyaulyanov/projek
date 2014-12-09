@@ -138,7 +138,6 @@ $(document).ready(function(){
 	//array - task average for that stage + stage id
 	//Spooky witchery below
 	function updateMeter(array,taskData){
-		console.log(taskData);
 		$('#meter-stage-'+array.stage_id).animate({ width: array.average+"%"},300);
 		$('#display-stage-'+array.stage_id).html(Math.round(array.average));
 		if(taskData.taskCompletion == 100){
@@ -156,14 +155,29 @@ $(document).ready(function(){
 				$(done).html('0');
 			}
 		}
-		console.log(array);
 		if(array.average==100){
 			$('#stage-'+array.stage_id).addClass('task-complete');
+			projectCompletionCheck();
 		}else{
 			$('#stage-'+array.stage_id).removeClass('task-complete');
 		}
 	}
 
+	function projectCompletionCheck(){
+		var disp = $('.stage-wrapper').find('.stage-average>span:first');
+		var stageTotal = 0;
+		for (var i = 0; i < disp.length; i++) {
+			stageTotal += parseInt(disp[i].innerHTML);
+		}
+		if((stageTotal/100) == disp.length){
+			console.log('project completed yay');
+			completeProject();
+		}
+	}
+
+	function completeProject(){
+		$('#projectEnd').foundation('reveal', 'open');
+	}
 
 })
 

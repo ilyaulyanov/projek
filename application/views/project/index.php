@@ -73,7 +73,18 @@
             echo "</div>";
         ?>
         <div id="msg"></div>
+        <a href="#" data-reveal-id="projectEnd">Click Me For A Modal</a>
 
+        <div id="projectEnd" class="reveal-modal" data-reveal>
+          <h2>There you go. You've done it. Feels good, doesn't it?</h2>
+          <p class="lead">What's next?</p>
+          <p>Well, you can tweet your success</p>
+          <a class="twitter-share-button"
+  href="https://twitter.com/share">
+Tweet
+</a>
+          <a class="close-reveal-modal">&#215;</a>
+        </div>
 
 </div>
 </div>

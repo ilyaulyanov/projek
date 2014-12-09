@@ -1,4 +1,8 @@
-<?php Auth::handleLogin() ?>
+<?php Auth::handleLogin();
+
+ ?>
+
+
 <div class="off-canvas-wrap" data-offcanvas>
     <h1>Projek - Test Info Below Please Ignore</h1>
 
