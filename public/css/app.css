@@ -286,11 +286,12 @@ opacity: 0.4;
 	font-weight: 300;
 	font-family: 'Roboto Slab', sans-serif;
 	color:#6f6f6f;
-	font-size:3em;
+	font-size:2em;
 }
 .completion_percentage{color:#6f6f6f; }
 .completion{
-	margin-top:-1.5em; padding:0;
+	padding: 1em 0em 1em 0em;
+margin-top: -1.5em;
 }
 
 
@@ -335,9 +336,9 @@ background:#f9f9f9;}
 	background: #BDC3C7;
 }
 .icon-task-complete{
-	position: absolute;
-right: 0.25em;
-font-size: 3em;
+position: absolute;
+right: 1em;
+font-size: 2em;
 color: #87D37C;
 }
 .task-complete{background:#f9f9f9;};
