@@ -2,7 +2,7 @@
           <div class="small-12 large-10 small-centered columns">
 
 
-    <h2 class="text-left">Project Timeline</h2>
+   <!-- <h2 class="text-left">Project Timeline</h2>-->
 
         <?php 
         $project = $this->project;

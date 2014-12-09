@@ -2,8 +2,47 @@
 h2{
 	font-family: 'Raleway', sans-serif;
 color:#6f6f6f;}
-
-
+/*sticky*/
+.contain-to-grid {
+width: 100%;
+background: #4183D7;
+}
+.top-bar{
+	background:transparent;
+}
+/*off-canvas menu */
+.projek-caption{
+	color: #666;
+font-family: 'Roboto Slab', sans-serif;
+font-size: 2em;
+width: 100%;
+font-weight: 400;
+text-shadow: none;
+text-transform: uppercase;
+padding-left: 1rem;
+}
+.left-off-canvas-menu{
+	background:#fff;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.left-off-canvas-menu>ul>li>a{
+color: #333;
+font-size: 1em;
+font-family: 'Raleway', sans-serif;
+text-transform: uppercase;
+padding: 1.7rem 0rem 1.7rem 1rem;
+display: block;
+}
+.left-off-canvas-menu>ul>li{
+	border-top:1px solid #eee;
+	height: 5rem;
+}
+.left-off-canvas-menu>ul{
+	margin:0;
+}
+.left-off-canvas-menu>ul>li>a:hover{
+	background:#f9f9f9;
+}
 
 /* Styling from Drayton */
 
@@ -32,7 +71,6 @@ h3{
 }
 .left-off-canvas-menu * {
 	list-style-type: none;
-	color:#fff;
 }
 
 .login-default-box{
@@ -266,10 +304,10 @@ opacity: 0.4;
 	font-style: italic;
 }
 .project_name{
-	font-family: 'Roboto Slab', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	color:#333;
 	font-weight: 500;
-	text-transform: uppercase;
+	font-size:3em;
 }
 div.stage-header.row{background:transparent;}
 .btn_save_task{
