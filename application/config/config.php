@@ -53,7 +53,7 @@ define('FACEBOOK_REGISTER_PATH', 'login/registerWithFacebook');
  * AVATAR_DEFAULT_IMAGE is the default image in public/avatars/
  */
 define('USE_GRAVATAR', false);
-define('AVATAR_SIZE', 44);
+define('AVATAR_SIZE', 250);
 define('AVATAR_JPEG_QUALITY', 85);
 define('AVATAR_DEFAULT_IMAGE', 'default.jpg');
 

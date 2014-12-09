@@ -39,7 +39,7 @@
             foreach($this->projects as $key => $value) {
                 echo '<tr>';
                 echo '<td>' . htmlentities($value->project_name) . '</td>';
-                echo '<td><a href="'. URL . '/project' . $value->project_id.'">Edit</a></td>';
+                echo '<td><a href="'. URL . 'project/index">View</a></td>';
                 echo '<td><a href="'. URL . '/project' . $value->project_id.'">Delete</a></td>';
                 echo '</tr>';
             }

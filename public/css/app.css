@@ -255,9 +255,8 @@ opacity: 0.4;
 	margin-top:-1.5em; padding:0;
 }
 
-.stages_wrapper>div>.row{
-	background:#E4F1FE;
-}
+
+.task{background:#e4f1fe;}
 .stage-wrapper{border:1px solid #eee; margin-bottom:1em;}
 .stage-wrapper>.content>h3{margin-left:0.5em;}
 .project_desc{
@@ -290,3 +289,17 @@ padding: 0;
 border:0;
 background:#f9f9f9;}
 .stage-progress>.progress.secondary>.meter{background:#87D37C;}
+
+.task-complete>.range-slider-handle{
+	background: #BDC3C7;
+}
+.task-complete>.range-slider-active-segment{
+	background: #BDC3C7;
+}
+.icon-task-complete{
+	position: absolute;
+right: 0.25em;
+font-size: 3em;
+color: #87D37C;
+}
+.task-complete{background:#f9f9f9;};

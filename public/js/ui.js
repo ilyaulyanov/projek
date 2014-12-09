@@ -78,10 +78,21 @@ $(document).ready(function(){
 		var idStr = str.substr(0, str.length-2);
 		//task done
 		if(value == 100){
-			$(slider).closest('.content').css('background', "#87D37C").css("opacity","0.3");
+			var par = $(slider).closest('.content');
+			$(par).css('background', "#f9f9f9");
+			$(par).find('div.small-2').children().animate({opacity:0},200);
+			$(par).find('div.small-2').prepend("<i class='fi-check icon-task-complete'></i>");
+			
 			$(slider).parent().addClass('task-complete');
 		}else{
-			$(slider).closest('.content').css('background', "#E4F1FE").css("opacity","1");
+			//$(slider).closest('.content').css('background', "#E4F1FE").css("opacity","1");
+			
+			$(slider).closest('.content').css('background', "#E4F1FE");
+			var par = $(slider).closest('.content');
+			$(par).find('div.small-2').children('.icon-task-complete').remove();
+			$(par).find('div.small-2').children().animate({opacity:1},200);
+
+			$(slider).parent().removeClass('task-complete');
 
 		}
 		$('.range-slider:not(.task-complete)').animate({ opacity: 1 }, 500).removeClass("disabled");
@@ -93,7 +104,7 @@ $(document).ready(function(){
 			taskCompletion : value 
 		}
 		$.param(taskData);
-		console.log(taskData);
+		//console.log(taskData);
 		//ajax request to update task
 		var request = $.ajax({
 	        type: "post",
@@ -101,7 +112,7 @@ $(document).ready(function(){
 	        data: taskData,
 	        dataType: 'html',
 	        success: function(resp){
-	        	console.log('success');
+	        	//console.log(resp);
 	        	var stage_request = $.ajax({
 			        type: "get",
 			        url: url+"project/getProgress",
@@ -109,7 +120,7 @@ $(document).ready(function(){
 			        dataType: 'json',
 			        success: function(resp){
 		        	//console.log(resp); 
-		        	updateMeter(resp.average)
+		        	updateMeter(resp.average,taskData);
 		        }
 		   		});
 	        	/*
@@ -124,11 +135,33 @@ $(document).ready(function(){
 	    });
 	}
 
-	function updateMeter(array){
-		console.log(array.average);
-		console.log(array.stage_id);
+	//array - task average for that stage + stage id
+	//Spooky witchery below
+	function updateMeter(array,taskData){
+		console.log(taskData);
 		$('#meter-stage-'+array.stage_id).animate({ width: array.average+"%"},300);
 		$('#display-stage-'+array.stage_id).html(Math.round(array.average));
+		if(taskData.taskCompletion == 100){
+			//console.log('yayaya');
+			var done = $('#display-task-done-stage-'+array.stage_id);
+			var total = $('#display-task-total-stage-'+array.stage_id);
+			var doneInt = parseInt($(done).html());
+			$(done).html(++doneInt);
+		}else{
+			var done = $('#display-task-done-stage-'+array.stage_id);
+			var doneInt = parseInt($(done).html());
+			if(doneInt>0){
+				$(done).html(--doneInt);
+			}else{
+				$(done).html('0');
+			}
+		}
+		console.log(array);
+		if(array.average==100){
+			$('#stage-'+array.stage_id).addClass('task-complete');
+		}else{
+			$('#stage-'+array.stage_id).removeClass('task-complete');
+		}
 	}
 
 

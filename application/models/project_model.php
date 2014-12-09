@@ -175,7 +175,6 @@ class ProjectModel
         $array['projectName'] = $res->projectName;
         $array['projectDesc'] = $res->projectDesc;
 
-
         return $array;
         exit;
 
@@ -211,9 +210,6 @@ WHERE `stages_tasks`.`stage_id` = :stage_id";
         $total = 0;
         foreach ($res as $r) {
             $total += $r->task_completion;
-
-            //echo $i;
-            //echo $r->task_completion;
         }
         $avg = $total/$i;
         $array = array();

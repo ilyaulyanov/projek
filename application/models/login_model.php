@@ -517,7 +517,7 @@ class LoginModel
      * @param string $r Maximum rating (inclusive) [ g | pg | r | x ]
      * @param array $attributes Optional, additional key/value attributes to include in the IMG tag
      */
-    public function setGravatarImageUrl($email, $s = 44, $d = 'mm', $r = 'pg', $attributes = array())
+    public function setGravatarImageUrl($email, $s = 250, $d = 'mm', $r = 'pg', $attributes = array())
     {
         // create image URL, write it into session
         $image_url = 'http://www.gravatar.com/avatar/' . md5(strtolower(trim($email))) .  "?s=$s&d=$d&r=$r";
@@ -610,7 +610,7 @@ class LoginModel
      * @return bool success state
      */
     public function resizeAvatarImage(
-        $source_image, $destination_filename, $width = 44, $height = 44, $quality = 85, $crop = true)
+        $source_image, $destination_filename, $width = 250, $height = 250, $quality = 85, $crop = true)
     {
         $image_data = getimagesize($source_image);
         if (!$image_data) {
