@@ -20,7 +20,7 @@ class Index extends Controller
      */
     function index()
     {
-            $this->view->render('index/index');
+            $this->view->render('dashboard/index');
     }
 
     function create(){
