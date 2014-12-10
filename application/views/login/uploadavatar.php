@@ -12,6 +12,8 @@
         <input type="file" id="fileChosen" name="avatar_file" required />
         <!-- max size 5 MB (as many people directly upload high res pictures from their digital cameras) -->
         <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+        <p class ="text-center"><a href="http://127.0.0.1:8080/projek/dashboard/index">Go Back To Dashboard</a></p>
+        <p><!-- --></p>
         <input class="uploadImg button" name="submit" type="submit" value="Upload image" />
     </form>
 </div>
