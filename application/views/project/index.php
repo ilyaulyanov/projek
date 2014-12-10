@@ -1,16 +1,14 @@
 <div class="row">
           <div class="small-12 large-10 small-centered columns">
-
-
-   <!-- <h2 class="text-left">Project Timeline</h2>-->
+<div class="timelineIndex">
 
         <?php 
         $project = $this->project;
         echo "<div class='row'>";
           echo "<div class='large-6 columns'>";
-            echo "<h3 class='subheader text-left project_name'>{$project['projectName']}</h3>";
+            echo "<h2 class='subheader text-center project_name'>{$project['projectName']}</h2>";
           echo "</div><div class='large-6 columns'>";
-            echo "<h3 class='text-left project_desc'><small>\"{$project['projectDesc']}\"</small></h3>";
+            echo "<h3 class='text-center project_desc'><small>\"{$project['projectDesc']}\"</small></h3>";
           echo "</div>";
         echo "</div>";
             $stagesArray = $project['stages'];
@@ -86,5 +84,6 @@ Tweet
           <a class="close-reveal-modal">&#215;</a>
         </div>
 
+</div>
 </div>
 </div>

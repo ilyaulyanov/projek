@@ -1,7 +1,7 @@
 /* global styles */
 h2{
 	font-family: 'Raleway', sans-serif;
-color:#6f6f6f;}
+color:#3f3f3f;}
 /*sticky*/
 .contain-to-grid {
 width: 100%;
@@ -10,10 +10,19 @@ background: #4183D7;
 .top-bar{
 	background:transparent;
 }
+
+a{
+	color:#4183d7;
+
+}
+
+.button{
+	background-color:#4183d7;
+}
 /*off-canvas menu */
 .projek-caption{
 	color: #666;
-font-family: 'Roboto Slab', sans-serif;
+font-family: 'Raleway', sans-serif;
 font-size: 2em;
 width: 100%;
 font-weight: 400;
@@ -51,15 +60,16 @@ display: block;
 }
 
 label {
-	color:#6f6f6f;
+	color:#3f3f3f;
 }
 
 h3{
-	color:#6f6f6f;
+	color:#3f3f3f;
 }
 
 #loginSubmit {
 	width:100%;
+	background-color:#4183d7;
 }
 
 #menuIcon{
@@ -92,9 +102,9 @@ h3{
 }
 
 .feedback{
-	font-size:18px;
-	margin-top: 2em;
-	color:#6f6f6f;
+	font-size:16px;
+	margin-top: 1em;
+	color:#3f3f3f;
 }
 
 .verificationPage{
@@ -108,7 +118,9 @@ h3{
 #backtoLogin {
 	width:100%;
 }
-
+.timelineIndex {
+	overflow:inherit;
+}
 .register-box{
 	margin-top: 2em;
 }
@@ -122,11 +134,11 @@ h3{
 }
 
 #avatarDescription{
-	color:#6f6f6f;
+	color:#3f3f3f;
 }
 
 #fileChosen{
-	color:#6f6f6f;
+	color:#3f3f3f;
 }
 
 .avatarImg img{
@@ -135,7 +147,7 @@ h3{
 }
 .usernameDashboard {
 	font-size:20px;
-	color:#6f6f6f;
+	color:#3f3f3f;
 }
 
 .editAvatar {
@@ -147,7 +159,7 @@ h3{
 .editProfileDashboard{
 	width:100%;
 	text-align:center;
-	color:#6f6f6f;
+	color:#3f3f3f;
 }
 .editProfileDashboard table{
 	width:100%;
@@ -155,7 +167,7 @@ h3{
 }
 .editProfileDashboard td{
 	font-size:15px;
-	color:#6f6f6f;
+	color:#3f3f3f;
 }
 .uploadavatar{
 	margin-top:2em;
@@ -215,7 +227,7 @@ input.project_task{
 	font-size: 0.8em;
 	cursor: pointer;
 	font-weight:700;
-	color:#6f6f6f;
+	color:#3f3f3f;
 }
 .new_task_btn{
 	clear: both;
@@ -223,7 +235,7 @@ input.project_task{
 	font-size: 0.8em;
 	cursor: pointer;
 	font-weight:700;
-	color:#6f6f6f;
+	color:#3f3f3f;
 }
 .btn_delete{
 	position: absolute;
@@ -281,14 +293,14 @@ opacity: 0.4;
 
 
 .stages_wrapper h3{margin-bottom:0;font-family: 'Raleway', sans-serif; color:#333;}
-.stages_wrapper h3 small{color:#333;}
+.stages_wrapper h3 small{color:#333;margin-left:0.4em;}
 .completion_indicator{
 	font-weight: 300;
 	font-family: 'Roboto Slab', sans-serif;
-	color:#6f6f6f;
+	color:#3f3f3f;
 	font-size:2em;
 }
-.completion_percentage{color:#6f6f6f; }
+.completion_percentage{color:#3f3f3f; }
 .completion{
 	padding: 1em 0em 1em 0em;
 margin-top: -1.5em;
@@ -300,26 +312,24 @@ margin-top: -1.5em;
 .stage-wrapper>.content>h3{margin-left:0.5em;}
 .project_desc{
 	font-family: 'Raleway', sans-serif;
-	color:#6f6f6f;
+	color:#3f3f3f;
 	font-weight: 500;
 	font-style: italic;
 }
 .project_name{
 	font-family: 'Raleway', sans-serif;
-	color:#333;
-	font-weight: 500;
-	font-size:3em;
+	color:#3f3f3f;
 }
 div.stage-header.row{background:transparent;}
 .btn_save_task{
 	position:absolute;
 	right:0em;
 	font-family: 'Raleway', sans-serif;
-	color:#6f6f6f;
+	color:#3f3f3f;
 	font-weight: normal;
 
 }
-.stage-average{ font-family: 'Roboto Slab', sans-serif; font-weight:300; color:#333;}
+.stage-average{ font-family: 'Roboto Slab', sans-serif; font-weight:300; color:#333; margin-left:1em;}
 .stage-progress{padding:0.25em 0em 0em 0em;}
 .stage-progress>div.secondary{
 margin-bottom: 0;
