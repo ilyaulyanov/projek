@@ -4,6 +4,7 @@
 
         <?php 
         $project = $this->project;
+        if($this->project){
         echo "<div class='row'>";
           echo "<div class='large-6 columns'>";
             echo "<h2 class='subheader text-center project_name'>{$project['projectName']}</h2>";
@@ -69,18 +70,28 @@
                 $i++;
             }
             echo "</div>";
+        }else{
+          echo '<div class="panel callout">
+  Uh-oh. Looks like you don\'t have any active projects. <a href="'. URL . 'project/create/"">Create Project</a>
+</div>';
+        }
+
         ?>
         <div id="msg"></div>
-        <a href="#" data-reveal-id="projectEnd">Click Me For A Modal</a>
+        
 
         <div id="projectEnd" class="reveal-modal" data-reveal>
           <h2>There you go. You've done it. Feels good, doesn't it?</h2>
           <p class="lead">What's next?</p>
-          <p>Well, you can tweet your success</p>
-          <a class="twitter-share-button"
+            <p>Well, you can tweet your success</p>
+          <div class="panel callout">
+  
+  <a class="twitter-share-button" data-count="none" data-size="large"  data-text="Just completed my project!" data-via="projekapp" data-hashtags="projek" data-url=" "
   href="https://twitter.com/share">
 Tweet
 </a>
+</div>
+          
           <a class="close-reveal-modal">&#215;</a>
         </div>
 

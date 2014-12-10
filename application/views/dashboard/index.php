@@ -35,19 +35,32 @@
     <?php $this->renderFeedbackMessages(); ?>
 	<table>
     <?php
-        if ($this->projects) {
-            foreach($this->projects as $key => $value) {
-                echo '<tr>';
-                echo '<td>' . htmlentities($value->project_name) . '</td>';
-                echo '<td><a href="'. URL . 'project/index">View</a></td>';
-                echo '<td><a href="'. URL . '/project' . $value->project_id.'">Delete</a></td>';
-                echo '</tr>';
+    if($this->projects){
+        foreach($this->projects as $key => $value) {
+
+                echo '<a href="'. URL . 'project/index" class="large secondary button split">' . htmlentities($value->project_name) . '<span data-dropdown="drop"></span></a><br>
+<ul id="drop" class="f-dropdown" data-dropdown-content>
+  <li><a href="'. URL . 'project/index">View</a></li>
+  <li><a href="'. URL . 'project/delete/' . $value->project_id.'">Delete</a></li>
+</ul>';
             }
-        } else {
-            echo 'No projects yet. <a href="'. URL . 'project/create/"">Create Project</a>';
-        }
+         
+    }else{
+        echo '<div class="panel callout">
+  Uh-oh. Looks like you don\'t have any active projects. <a href="'. URL . 'project/create/"">Create Project</a>
+</div>';
+    }
+        
     ?>
     </table>
+    </div>
 </div>
+<a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+
+<div id="myModal" class="reveal-modal" data-reveal>
+  <h2>Awesome. I have it.</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <a class="close-reveal-modal">&#215;</a>
 </div>
 </div>

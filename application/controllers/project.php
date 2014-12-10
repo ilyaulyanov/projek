@@ -52,4 +52,14 @@ class Project extends Controller{
 		$project_model->getStageProgress($_GET);
 	}
 
+	public function delete($project_id)
+    {
+        if (isset($project_id)) {
+            $project_model = $this->loadModel('Project');
+            $project_model->deleteProject($project_id);
+        }
+        header('location: ' . URL . 'dashboard');
+    }
+
+
 }

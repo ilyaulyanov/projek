@@ -154,29 +154,35 @@ class ProjectModel
         WHERE projects.user_id = :user_id";
         $query = $this->db->prepare($sql);
         $query->execute(array(':user_id' => $_SESSION['user_id']));
-        $result = $query->fetchAll();
-        $array = array();
-        $stagesArray = array();
-        $taskArray = array();
-        $idArr = array();
-        foreach ($result as $res) {
-            $taskArray['task_name'] = $res->taskName;
-            $taskArray['task_completion'] = $res->taskCompletion;
-            $taskArray['task_id'] = $res->taskId;
-            $stagesArray[$res->stageName]["tasks"][] = $taskArray;
+        $count =  $query->rowCount();
 
-            $stagesArray[$res->stageName]["stage_id"][] = $res->StageId;
+        if ($count >= 1) {
+            $result = $query->fetchAll();
+            $array = array();
+            $stagesArray = array();
+            $taskArray = array();
+            $idArr = array();
+            foreach ($result as $res) {
+                $taskArray['task_name'] = $res->taskName;
+                $taskArray['task_completion'] = $res->taskCompletion;
+                $taskArray['task_id'] = $res->taskId;
+                $stagesArray[$res->stageName]["tasks"][] = $taskArray;
 
-           // $stagesArray['stage_id'][] = $res->StageId;
+                $stagesArray[$res->stageName]["stage_id"][] = $res->StageId;
+            }
+
+            $array['stages'] = $stagesArray;
+            $array['projectId'] = $res->projectId;
+            $array['projectName'] = $res->projectName;
+            $array['projectDesc'] = $res->projectDesc;
+
+            return $array;
+            exit;
+        } else {
+            return false;
         }
 
-        $array['stages'] = $stagesArray;
-        $array['projectId'] = $res->projectId;
-        $array['projectName'] = $res->projectName;
-        $array['projectDesc'] = $res->projectDesc;
 
-        return $array;
-        exit;
 
     }
 
@@ -220,6 +226,22 @@ WHERE `stages_tasks`.`stage_id` = :stage_id";
         $reply = array('error' => false, 'average' =>$array); // or $result = array('error' => false);
             echo json_encode($reply);
             exit;
+    }
+
+    function deleteProject($project_id){
+        $sql = "DELETE FROM `projects` WHERE project_id = :project_id AND user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':project_id' => $project_id, ':user_id' => $_SESSION['user_id']));
+
+        $count =  $query->rowCount();
+
+        if ($count == 1) {
+            return true;
+        } else {
+            $_SESSION["feedback_negative"][] = FEEDBACK_NOTE_DELETION_FAILED;
+        }
+        // default return
+        return false;
     }
 }
 
