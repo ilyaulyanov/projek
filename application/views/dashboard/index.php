@@ -1,4 +1,6 @@
+<?php Auth::handleLogin();
 
+ ?>
 <div class="row dash">
     <div class="content">
     <div class="small-4 large-4 columns">

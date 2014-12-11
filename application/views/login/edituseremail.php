@@ -10,9 +10,8 @@
     <form action="<?php echo URL; ?>login/edituseremail_action" method="post">
         <label>Enter New Email:</label>
         <input type="text" name="user_email" required />
-        <p class ="text-center"><a href="http://127.0.0.1:8080/projek/dashboard/index">Go Back To Dashboard</a></p>
-        <p><!-- --></p>
         <input class="emailbtn button" type="submit" value="Submit" />
+        <p class ="text-center"><?php echo '<a href="'.URL.'dashboard/index">Go Back To Dashboard</a>'; ?></p>
     </form>
 </div>
 </div>

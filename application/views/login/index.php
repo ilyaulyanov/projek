@@ -3,7 +3,7 @@
     <div class="content">
     <div class="text-center"> <?php $this->renderFeedbackMessages(); ?> </div>
     <div class="login-default-box">
-        <h2 class="text-center">Welcome</h2>
+        <h2 class="text-center">Welcome to Projek.</h2>
         <form action="<?php echo URL; ?>login/login" method="post">
                 <label>E-mail</label>
                 <input type="text" name="user_name" required />

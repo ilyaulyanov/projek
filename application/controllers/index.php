@@ -22,7 +22,9 @@ class Index extends Controller
     {
           //  $project_model = $this->loadModel('Project');
         //$this->view->projects = $project_model->getProjectForUser();
-            $this->view->render('index/index');
+        $project_model = $this->loadModel('Project');
+        $this->view->projects = $project_model->getProjectForUser();
+            $this->view->render('dashboard/index');
     }
 
     function create(){
