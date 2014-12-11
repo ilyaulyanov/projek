@@ -243,5 +243,20 @@ WHERE `stages_tasks`.`stage_id` = :stage_id";
         // default return
         return false;
     }
+
+    function getRandomQuote(){
+        $quotes = array(
+        "Hey! You, ya you! You just finished a Projek. That’s worth celebrating!",
+        "Oh hey, didn’t see you there. Just finished a Projek, eh?",
+        "Projek complete. This message will self-destruct in 5 seconds. Just kidding!",
+        "You just finished a Projek! You knew that, but your Twitter might not!",
+        "Projek complete!",
+        "Are you a wizard? Because that Projek was magical.",
+        "Project complete. Did it hurt when you fell from Projek heaven?",
+        "There you go. You've done it. Feels good, doesn't it?"
+    );
+
+    echo $quotes[rand(0, (count($quotes)-1))];
+    }
 }
 

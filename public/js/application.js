@@ -6,7 +6,8 @@
 
 $(document).ready(function() {
 
-$('.ui-loader').addClass('hidden');
+
+	$('.ui-loader').addClass('hidden');
 
 	//initial button
 	var newTaskBtnEl = document.getElementsByClassName('new_task_btn');
@@ -141,6 +142,7 @@ $('.ui-loader').addClass('hidden');
 	
 	//renaming stages/tasks function
 	function renameTask(obj){
+		deleteLabels();
 		$(obj).prop("readonly",false).removeClass('no-pointer');
 		var binded = obj;
 		var saveBtn = document.createElement('div');
@@ -160,8 +162,6 @@ $('.ui-loader').addClass('hidden');
 	}
 
 
-});
-
 //object constructor for stages & tasks
 function prObj(stage,tasks){
 		this.stage = stage,
@@ -176,39 +176,62 @@ function dataObj(name,description,prObj){
 }
 
 
-$(document).ready(function($){
+
 		
 		$('#project_create_continue').click(function(){
-			//TODO LIST
+			if(projStageCheck()){
+				//taking out the trash
+				$("fieldset hr").remove();
+				$('fieldset input.action-button').remove();
+				$('#btn_stage_add').remove();
+				$('.new_task_btn').remove();
+				//find stages inside form
+			    var found_stages = $('fieldset').find('.project_stage');
+			    console.log(found_stages);
+				var objArr = [];
+				//converting into jquery elements
+				//getting an array of objects from form
+				for (var i = 0; i < found_stages.length; i++) {
+					objArr.push(formTasksArray($(found_stages[i])));
+				};
+				/* removing last input in the list*/
+				var objLength = objArr.length;
 
-			/*
-			*
-			* REMOVE ALL DIVS INSIDE FORM
-			*
-			*/
-			//taking out the trash
-			$("fieldset hr").remove();
-			$('fieldset input.action-button').remove();
-			$('#btn_stage_add').remove();
-			$('.new_task_btn').remove();
-			//find stages inside form
-		    var found_stages = $('fieldset').find('.project_stage');
-		    console.log(found_stages);
-			var objArr = [];
-			//converting into jquery elements
-			//getting an array of objects from form
-			for (var i = 0; i < found_stages.length; i++) {
-				objArr.push(formTasksArray($(found_stages[i])));
-			};
-			/* removing last input in the list*/
-			var objLength = objArr.length;
+				//create object for ajax
+				var data = formDataObj(objArr);
+				console.log(data);
+				//send it
+				postDataFromForm(data);
+			}else{
 
-			//create object for ajax
-			var data = formDataObj(objArr);
-			console.log(data);
-			//send it
-			postDataFromForm(data);
+			}
 		}) 	
+		
+		function projStageCheck(){
+			var okay = true;
+			var values = [];
+			deleteLabels();
+			$('input[class^=project_stage]').each(function() {
+			//$(this).css('background',"#f9f9f9");
+			    if ( $.inArray(this.value, values) >= 0 ) {
+			    	$(this).before("<small class='error'>Stage name should be unique.</small>");
+			        console.log(this);
+			        okay = false;
+			        //return false; // <-- stops the loop
+
+			    } else {
+			    	//postDataFromForm(data);
+			       values.push( this.value );
+			    }
+			});
+			if(okay){return true}else{return false;}
+			
+		}
+
+		function deleteLabels(){
+			$('fieldset small').remove();
+		}
+
 
 
 		/**
@@ -263,7 +286,7 @@ $(document).ready(function($){
 	        	console.log('suc');
 			    }else{
 		        	$('form').hide();
-	        		$('#project-message').removeClass('hidden').html('Congratulations! Your project has been created. <br/> <a href="'+url+'dashboard">Go to my dashboard<a>');
+	        		$('#project-message').removeClass('hidden').html('Congratulations! Your project has been created. <br/> <a href="'+url+'project">Go to my project<a>');
 			    }
 
 	        	

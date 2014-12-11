@@ -80,17 +80,23 @@
         <div id="msg"></div>
         
 
-        <div id="projectEnd" class="reveal-modal" data-reveal>
-          <h2>There you go. You've done it. Feels good, doesn't it?</h2>
-          <p class="lead">What's next?</p>
-            <p>Well, you can tweet your success</p>
+        <div id="projectEnd" class="reveal-modal small" data-reveal>
+          <div class="small-12 large-12 small-centered columns">
           <div class="panel callout">
-  
+          <!--<p class="lead">What's next?</p>-->
+           
+            <p class="lead">Share some Projek love on Twitter</p>
   <a class="twitter-share-button" data-count="none" data-size="large"  data-text="Just completed my project!" data-via="projekapp" data-hashtags="projek" data-url=" "
   href="https://twitter.com/share">
 Tweet
 </a>
+
+
+
 </div>
+<?php echo '<a href="'. URL . 'dashboard/index/">Back to my dashboard</a>'; ?>
+</div>
+
           
           <a class="close-reveal-modal">&#215;</a>
         </div>

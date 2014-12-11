@@ -149,7 +149,8 @@ h3{
 	font-size:20px;
 	color:#3f3f3f;
 }
-
+.dash{margin-top:1em;}
+.proj_button{width:100%;}
 .editAvatar {
 	font-size:15px;
 }
@@ -221,6 +222,15 @@ input.project_task{
 	width:80%;
 
 }
+input[type="text"][readonly]{
+	background: #f9f9f9;
+border: 1px solid #ccc;
+box-shadow: none;
+}
+small.error{
+	margin-bottom:0;
+	background: #E74C3C;
+}
 #btn_stage_add{
 	clear:both;
 	text-transform: uppercase;
@@ -239,7 +249,7 @@ input.project_task{
 }
 .btn_delete{
 	position: absolute;
-	background: #D64541;
+	background: #E74C3C;
 	color: #f9f9f9;
 	padding: 0.4em;
 	right:2em;

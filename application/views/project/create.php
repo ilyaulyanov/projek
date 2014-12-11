@@ -8,7 +8,7 @@
 <fieldset>
             <h2 class="fs-title">Let's get started</h2>
             <h3 class="fs-subtitle">Step 1</h3>
-        <input type="text" id="project_name" name="project_name" placeholder="My Project" autofocus required />
+        <input type="text" id="project_name" pattern="[a-zA-Z0-9\s-]{2,64}"  name="project_name" placeholder="My Project" autofocus required />
         <textarea rows="4" id="project_description" name="project_description" placeholder="Project description" ></textarea>
             <input type="button" id="firstBtn" name="next" class="next action-button button" value="Next" />
 </fieldset>
@@ -24,7 +24,7 @@
             <div id="btn_stage_add">+ stage</div>
             <input type="button" id="secondBtn" name="previous" class="previous action-button button" value="Previous" />
 
-            <input type="button" name="continue" class="project_create_continue action-button button thirdBtn" id="project_create_continue" value="Continue"/>
+            <input type="button" name="continue" class="project_create_continue action-button button thirdBtn" id="project_create_continue" value="Create"/>
 
 
 

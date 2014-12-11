@@ -51,6 +51,10 @@ class Project extends Controller{
 		$project_model = $this->loadModel('Project');
 		$project_model->getStageProgress($_GET);
 	}
+	public function getQuote(){
+		$project_model = $this->loadModel('Project');
+		$project_model->getRandomQuote($_GET);
+	}
 
 	public function delete($project_id)
     {

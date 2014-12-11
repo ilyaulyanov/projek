@@ -176,6 +176,18 @@ $(document).ready(function(){
 	}
 
 	function completeProject(){
+		var request = $.ajax({
+	        type: "get",
+	        url: url+"project/getQuote",
+	        data: "",
+	        dataType: 'html',
+	        success: function(resp){
+	        	$('#projectEnd').find('h3').remove();
+	        	$('#projectEnd').prepend('<h3>'+resp+'</h3');
+
+	        }
+	    });
+
 		$('#projectEnd').foundation('reveal', 'open');
 	}
 
